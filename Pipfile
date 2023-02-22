@@ -26,7 +26,8 @@ python-editor = "==1.0.4"
 greenlet = "==2.0.1"
 Mako = "==1.2.4"
 s3 = "*"
-boto3 = "*"
+boto3 = "==1.18.48"
+botocore = "==1.21.48"
 
 [dev-packages]
 
