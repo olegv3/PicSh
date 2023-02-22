@@ -19,7 +19,7 @@ def seed_comments():
 
 def undo_comments():
     if environment == "production":
-        db.session.execute("TRUNCATE TABLE comments CASCADE")
+        db.session.execute(f"TRUNCATE TABLE {SCHEMA}.comments RESTART IDENTITY CASCADE;")
     else:
         db.session.execute("DELETE FROM comments")
 

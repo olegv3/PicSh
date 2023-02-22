@@ -24,7 +24,7 @@ def seed_images():
 # it will reset the primary keys for you as well.
 def undo_images():
     if environment == "production":
-        db.session.execute("TRUNCATE TABLE images CASCADE")
+        db.session.execute(f"TRUNCATE table {SCHEMA}.images RESTART IDENTITY CASCADE;")
     else:
         db.session.execute("DELETE FROM images")
 
