@@ -1,0 +1,261 @@
+.whole-nav-bar {
+    background-color: rgba(25, 25, 26, 0.4);
+    position: fixed;
+    width: 100%;
+    height: 5em;
+    z-index: 2;
+    box-sizing: border-box;
+}
+
+.links-on-nav-bar {
+    color: white;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+.logo-navbar {
+    box-sizing: border-box;
+    height: 20px;
+    width: 20px;
+    margin-top: 27px;
+    margin-right: 5px;
+    transform: rotate(180deg);
+}
+
+.navbar-left-side {
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+}
+
+
+.navbar-main-container {
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    justify-content: space-between;
+
+}
+
+.navbar-right-side {
+    display: flex;
+    flex-direction: row;
+    padding-top: 27px;
+    margin-right: 1em;
+    width: 25em;
+    box-sizing: border-box;
+    justify-content: space-around;
+}
+
+.site-name-navbar {
+    font-size: 2em;
+    font-weight: bold;
+    box-sizing: border-box;
+}
+
+.explore-link-navbar {
+    display: flex;
+    flex-direction: row;
+    margin-left: 4.5em;
+    margin-top: 1.25em;
+}
+
+.left-side-links-navbar {
+    text-decoration: none;
+    color: white;
+    font-size: 1.25em;
+}
+
+.left-side-links-navbar:hover,
+.you-span-tag-navbar:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.you-dropdown-div-navbar {
+    margin-left: 2em;
+}
+
+.you-span-tag-navbar {
+    color: white;
+    font-size: 1.25em;
+
+}
+
+.you-dropdown-links-div {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(47, 47, 48);
+    border-radius: .15em;
+    margin-right: 1em;
+    position: fixed;
+    left: 20em;
+}
+
+.links-for-you-navbar {
+    text-decoration: none;
+    color: white;
+    border: .1em solid rgb(32, 32, 32);
+    padding: .5em;
+    border-radius: .15em;
+}
+
+.links-for-you-navbar:hover {
+    text-decoration: underline;
+}
+
+.container-for-name {
+    padding-top: 1em;
+    box-sizing: border-box;
+}
+
+.container-for-right-navbar-links {
+    display: flex;
+    flex-direction: row;
+    padding-left: 1em;
+    box-sizing: border-box;
+
+}
+
+.sign-up-navbar-text {
+    background-color: white;
+    border-radius: .25em;
+    color: black;
+    padding-top: .3em;
+    padding-bottom: .3em;
+    padding-left: 1em;
+    padding-right: 1em;
+    box-sizing: border-box;
+
+
+}
+
+.sign-up-navbar-text:hover {
+    color: gray;
+    box-sizing: border-box;
+}
+
+.link-for-signup {
+    color: white;
+    text-decoration: none;
+    box-sizing: border-box;
+
+}
+
+.logout-button-div-navbar {
+    padding-top: .25em;
+    box-sizing: border-box;
+}
+
+.logout-button-navbar {
+    background: none;
+    border: none;
+    font-size: .85em;
+
+}
+
+.upload-icon-navbar {
+    font-size: 1.75em;
+    margin-left: 4em;
+    padding-top: .1em;
+    box-sizing: border-box;
+}
+
+
+.profile-dropdown {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.5em;
+    padding-bottom: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-top: .5em;
+    background-color: white;
+    box-shadow: 0px 1px 10px black;
+    border-radius: .5em;
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+    width: 15em;
+
+
+}
+
+.ProfileButton {
+    display: flex;
+    flex-direction: column;
+    background: none;
+    border: none;
+    margin-bottom: 10em;
+    box-sizing: border-box;
+
+}
+
+
+.profile-button-div {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+
+
+}
+
+.profileButton {
+    width: 3em;
+    box-sizing: border-box;
+}
+
+
+
+.div-for-profile-button-and-upload {
+    display: flex;
+    flex-direction: row;
+    width: 30%;
+    gap: 2.5em;
+    box-sizing: border-box;
+}
+
+.nav-bar-profile-picture {
+
+    width: 25%;
+    border-radius: 50%;
+    margin-right: 10em;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.username {
+    text-decoration: none;
+    color: black;
+    box-sizing: border-box;
+
+}
+
+.username:hover,
+.logout-button-navbar:hover {
+    text-decoration: underline;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+
+.adjustment-for-profile-dropdown {
+    top: 3em;
+    left: 77%;
+    box-sizing: border-box;
+    position: fixed;
+}
+
+.hello-user-navbar {
+    display: flex;
+    flex-direction: row;
+    font-size: .9em;
+    justify-content: center;
+    padding-left: .45em;
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+    gap: .25em;
+}

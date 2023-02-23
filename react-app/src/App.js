@@ -1,33 +1,51 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import LoginForm from './components/auth/LoginForm';
+import SignUpForm from './components/auth/SignUpForm';
+import NavBar from './components/NavBar';
+import ProtectedRoute from './components/auth/ProtectedRoute';
+import UsersList from './components/UsersList';
 import { Route, Switch } from "react-router-dom";
-import SignupFormPage from "./components/SignupFormPage";
-import LoginFormPage from "./components/LoginFormPage";
 import { authenticate } from "./store/session";
-import Navigation from "./components/Navigation";
+// import Navigation from "./components/Navigation";
 
 function App() {
+  const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
-  const [isLoaded, setIsLoaded] = useState(false);
+
   useEffect(() => {
-    dispatch(authenticate()).then(() => setIsLoaded(true));
+    (async () => {
+      await dispatch(authenticate());
+      setLoaded(true);
+    })();
   }, [dispatch]);
 
+
+
+  if (!loaded) {
+    return null;
+  }
+
+
   return (
-    <>
-      <Navigation isLoaded={isLoaded} />
-      {isLoaded && (
-        <Switch>
-          <Route path="/login" >
-            <LoginFormPage />
+    <BrowserRouter>
+    <NavBar />
+    <Switch>
+      <Route path="/login" exact={true}>
+        <LoginForm />
           </Route>
-          <Route path="/signup">
-            <SignupFormPage />
+          <Route path="/sign-up" exact={true}>
+            <SignUpForm />
           </Route>
+          <ProtectedRoute path="/users" exact={true} >
+            <UsersList />
+          </ProtectedRoute>
         </Switch>
-      )}
-    </>
+    </BrowserRouter>
   );
 }
+
+
 
 export default App;
