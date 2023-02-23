@@ -37,7 +37,7 @@ const NavBar = () => {
             </NavLink>
             {sessionUser ?
               <div className='explore-link-navbar'>
-                <Link to='/photos' className='left-side-links-navbar'>Explore</Link>
+                <Link to='/photos' className='left-side-links-navbar'>Photos</Link>
                 <div className='you-dropdown-div-navbar'>
                   {/* <You user={sessionUser} /> */}
                 </div>

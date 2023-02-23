@@ -5,18 +5,9 @@ import { signUp, login } from '../../store/session';
 import './SignUpForm.css'
 // import Logo from '../../assets/misc/Logo.png'
 
-// const letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+const letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
-const letters = () => {
-  const letters = []
-  for (let i = 65; i < 91; i++) {
-    letters.push(String.fromCharCode(i))
-  }
-  for (let i = 97; i < 123; i++) {
-    letters.push(String.fromCharCode(i))
-  }
-  return letters
-}
+
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
@@ -45,13 +36,13 @@ const SignUpForm = () => {
 
   useEffect(() => {
     const errors = {}
-    if (username.length < 4 && username.length > 0) errors.username = ("Username must be at least 4 characters or more.")
+    if (username.length < 3 && username.length > 0) errors.username = ("Username must be at least 3 characters or more.")
     if (username.length > 25) errors.username = ("Username is too long please make it less then 25 characters")
     if (password.length < 8 && password.length > 0) errors.password = ("Password must be at least 8 characters or more.")
     if (password !== repeatPassword && repeatPassword.length > 0) errors.repeatPassword = ("Repeated Password doesn't match Password.")
     if (full_name.length > 0 && !letters.includes(full_name[0])) errors.fullName = ('Please enter your full name')
-    if (full_name.length !== 0 && full_name.length < 4) errors.fullName = ('Full names but be at least 4 characters long')
-    if (full_name.length > 40) errors.fullName = ('Please enter your full name at a length less than 40 characters')
+    if (full_name.length !== 0 && full_name.length < 4) errors.fullName = ('Name must be at least 3 characters long')
+    if (full_name.length > 40) errors.fullName = ('Please enter your name at a length less than 40 characters')
     if (Object.keys(errors).length > 0) setDisable(true)
     if (Object.keys(errors).length === 0 && username.length > 1 && password.length > 1 && full_name.length > 1 && repeatPassword.length > 1) setDisable(false)
 
@@ -107,7 +98,7 @@ const SignUpForm = () => {
       <div className='whole-sign-up-container'>
         <div className='sign-up-form'>
           <div className='logo-and-sign-up-message'>
-            <img className='logo-sign-up-form' src={"Logo"} alt='Logo' />
+            <img className='logo-sign-up-form' src="https://cdn-icons-png.flaticon.com/128/174/174849.png" alt='Logo' />
             <span>Sign up</span>
           </div>
 
@@ -116,6 +107,20 @@ const SignUpForm = () => {
               {errors.map((error, ind) => (
                 <div key={ind}>{error}</div>
               ))}
+            </div>
+            <div className='all-sign-up-form-inputs-labels'>
+              <input
+                placeholder='Name'
+                className='sign-up-form-inputs-only'
+                type='text'
+                name='fullName'
+                onChange={updateFullName}
+                value={full_name}
+                required={true}
+              ></input>
+              {formErrors.fullName ?
+                <div className='errors-for-sign-up'>{formErrors.fullName}</div>
+                : null}
             </div>
             <div className='all-sign-up-form-inputs-labels'>
               <input
@@ -129,20 +134,6 @@ const SignUpForm = () => {
               ></input>
               {formErrors.username ?
                 <div className='errors-for-sign-up'>{formErrors.username}</div>
-                : null}
-            </div>
-            <div className='all-sign-up-form-inputs-labels'>
-              <input
-                placeholder='Full Name'
-                className='sign-up-form-inputs-only'
-                type='text'
-                name='fullName'
-                onChange={updateFullName}
-                value={full_name}
-                required={true}
-              ></input>
-              {formErrors.fullName ?
-                <div className='errors-for-sign-up'>{formErrors.fullName}</div>
                 : null}
             </div>
             <div className='all-sign-up-form-inputs-labels'>
@@ -189,16 +180,11 @@ const SignUpForm = () => {
               <button className='login-submit-button' onClick={event => demoUser(event)}>Demo User</button>
             </div>
             <div className='terms-of-service-sign-up-div'>
-              <span className='terms-of-service-sign-up'>By signing up, you agree with <Link style={{ textDecoration: 'none', color: 'rgb(0,130,199)', cursor: 'not-allowed' }}>Terms of Services</Link> and <Link style={{ textDecoration: 'none', color: 'rgb(0,130,199)', cursor: 'not-allowed' }}>Privacy Policy</Link></span>
+              {/* <span className='terms-of-service-sign-up'>By signing up, you agree with <Link style={{ textDecoration: 'none', color: 'rgb(0,130,199)', cursor: 'not-allowed' }}>Terms of Services</Link> and <Link style={{ textDecoration: 'none', color: 'rgb(0,130,199)', cursor: 'not-allowed' }}>Privacy Policy</Link></span> */}
             </div>
             <div className='sign-up-form-gray-line-before-already-member' />
             <div className='already-a-member-sign-up'> Already a member? <Link to='/login' style={{ textDecoration: 'none', color: 'rgb(0,130,199)' }}>Log in here.</Link></div>
           </form>
-        </div>
-        <div className='extra-links-bottom-of-sign-up'>
-          <Link className='links-below-sign-up' style={{ textDecoration: 'none', color: 'white' }}>Help</Link>
-          <Link className='links-below-sign-up' style={{ textDecoration: 'none', color: 'white' }}>Privacy</Link>
-          <Link className='links-below-sign-up' style={{ textDecoration: 'none', color: 'white' }}>Terms</Link>
         </div>
       </div>
     </div>

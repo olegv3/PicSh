@@ -10,7 +10,7 @@
 }
 
 .background-for-signup-and-login {
-    /* background-image: url('../../assets/misc/FlickrSignUpFormBackground.jpg'); */
+    background-image: url('https://picshrbucket.s3.us-east-2.amazonaws.com/47508364201_722b587c21_o.jpg');
     background-size: cover;
     height: 110vh;
     display: fixed;

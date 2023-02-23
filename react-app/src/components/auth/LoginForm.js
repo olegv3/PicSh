@@ -53,7 +53,7 @@ const LoginForm = () => {
       <div className='whole-sign-up-container'>
         <div className='sign-up-form'>
           <div className='logo-and-sign-up-message'>
-            <img className='logo-sign-up-form' src={"Logo"} alt='Logo' />
+            <img className='logo-sign-up-form' src="https://cdn-icons-png.flaticon.com/128/174/174849.png" alt='Logo' />
             <span>Log in</span>
           </div>
 
@@ -94,11 +94,6 @@ const LoginForm = () => {
             <div className='sign-up-form-gray-line-before-already-member' />
             <div className='already-a-member-sign-up'> Not a member? <Link to='/sign-up' style={{ textDecoration: 'none', color: 'rgb(0,130,199)' }}>Sign up here.</Link></div>
           </form>
-        </div>
-        <div className='extra-links-bottom-of-sign-up'>
-          <Link className='links-below-sign-up' style={{ textDecoration: 'none', color: 'white' }}>Help</Link>
-          <Link className='links-below-sign-up' style={{ textDecoration: 'none', color: 'white' }}>Privacy</Link>
-          <Link className='links-below-sign-up' style={{ textDecoration: 'none', color: 'white' }}>Terms</Link>
         </div>
       </div>
     </div>
