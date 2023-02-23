@@ -74,7 +74,8 @@
 
 .left-side-links-navbar:hover,
 .you-span-tag-navbar:hover {
-    text-decoration: underline;
+    text-decoration: none;
+    color: lightgrey;
     cursor: pointer;
 }
 
