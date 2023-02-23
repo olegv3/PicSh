@@ -2,7 +2,7 @@
     background-color: rgba(25, 25, 26, 0.4);
     position: fixed;
     width: 100%;
-    height: 4.5em;
+    height: 3.5em;
     z-index: 2;
     box-sizing: border-box;
 }
@@ -11,13 +11,19 @@
     color: white;
     text-decoration: none;
     box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+}
+
+.links-on-nav-bar:hover {
+    color: black;
 }
 
 .logo-navbar {
     box-sizing: border-box;
     height: 20px;
     width: 20px;
-    margin-top: 27px;
+    margin-top: 19px;
     margin-right: 5px;
     transform: rotate(180deg);
 }
@@ -40,7 +46,7 @@
 .navbar-right-side {
     display: flex;
     flex-direction: row;
-    padding-top: 27px;
+    padding-top: 17px;
     margin-right: 1em;
     width: 25em;
     box-sizing: border-box;
@@ -105,7 +111,7 @@
 }
 
 .container-for-name {
-    padding-top: 1em;
+    padding-top: 9px;
     box-sizing: border-box;
 }
 
@@ -119,14 +125,15 @@
 
 .sign-up-navbar-text {
     background-color: white;
-    border-radius: 20px;
+    border-radius: 5px;
     color: black;
     padding-top: .3em;
     padding-bottom: .3em;
     padding-left: 1em;
     padding-right: 1em;
     box-sizing: border-box;
-
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
 
 }
 

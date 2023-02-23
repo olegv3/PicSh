@@ -14,9 +14,9 @@ const NavBar = () => {
   if (sessionUser) {
     sessionLinks = (
       <>
-        <div className='profile-button-div'>
+        {/* <div className='profile-button-div'>
           <ProfileButton user={sessionUser} className='ProfileButton' />
-        </div>
+        </div> */}
 
       </>
     )
@@ -52,7 +52,7 @@ const NavBar = () => {
                   <span>
                     <NavLink className='links-on-nav-bar' to='/upload' exact={true} activeClassName='active'>
                       <div className='upload-icon-navbar'>
-                        <i className="fa-solid fa-cloud-arrow-up"></i>
+                        {/* <i className="fa-solid fa-cloud-arrow-up"></i> */}
                       </div>
                     </NavLink>
                   </span>
@@ -68,12 +68,12 @@ const NavBar = () => {
                   </NavLink>
                 </span>
                 <span>
-                  <NavLink className='links-on-nav-bar' to={`/login?redirectTo=${prevLocation.pathname}`} exact={true} activeClassName='active'>
+                  <NavLink className='links-on-nav-bar' to={`/login?re-direct=${prevLocation.pathname}`} exact={true} activeClassName='active'>
                     Log in
                   </NavLink>
                 </span>
                 <span>
-                  <NavLink className='link-for-signup' to={`/sign-up?redirectTo=${prevLocation.pathname}`} exact={true} activeClassName='active'>
+                  <NavLink className='link-for-signup' to={`/sign-up?re-direct=${prevLocation.pathname}`} exact={true} activeClassName='active'>
                     <span className='sign-up-navbar-text'>
                       Sign Up
                     </span>

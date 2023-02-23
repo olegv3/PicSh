@@ -50,7 +50,7 @@ const SignUpForm = () => {
   }, [username, password, repeatPassword, full_name, disable])
 
   const onSignUp = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
     if (password === repeatPassword) {
       const data = await dispatch(signUp(username.toLowerCase(), full_name, email.toLowerCase(), password));
       if (data) {
@@ -163,7 +163,7 @@ const SignUpForm = () => {
             </div>
             <div className='all-sign-up-form-inputs-labels'>
               <input
-                placeholder='Repeat Password'
+                placeholder='Confirm Password'
                 className='sign-up-form-inputs-only'
                 type='password'
                 name='repeat_password'
@@ -178,9 +178,6 @@ const SignUpForm = () => {
             <div className='sign-up-submit-button-div'>
               <button disabled={disable} className='sign-up-submit-button' type='submit'>Sign Up</button>
               <button className='login-submit-button' onClick={event => demoUser(event)}>Demo User</button>
-            </div>
-            <div className='terms-of-service-sign-up-div'>
-              {/* <span className='terms-of-service-sign-up'>By signing up, you agree with <Link style={{ textDecoration: 'none', color: 'rgb(0,130,199)', cursor: 'not-allowed' }}>Terms of Services</Link> and <Link style={{ textDecoration: 'none', color: 'rgb(0,130,199)', cursor: 'not-allowed' }}>Privacy Policy</Link></span> */}
             </div>
             <div className='sign-up-form-gray-line-before-already-member' />
             <div className='already-a-member-sign-up'> Already a member? <Link to='/login' style={{ textDecoration: 'none', color: 'rgb(0,130,199)' }}>Log in here.</Link></div>
