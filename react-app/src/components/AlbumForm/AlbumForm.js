@@ -12,7 +12,7 @@ import ImageButton from "./ImageButton";
 const letters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
 const AlbumForm = () => {
-    const history = useHistory(); // so that we can redirect after the image upload is successful
+    const history = useHistory();
     const dispatch = useDispatch()
     const { userId } = useParams()
     const [description, setDescription] = useState("")
@@ -98,8 +98,7 @@ const AlbumForm = () => {
             photos.add(id)
             setSelected(true)
         }
-        // console.log(photos)
-        // console.log(Array.from(photos))
+
         return photos
     }
 
@@ -113,7 +112,7 @@ const AlbumForm = () => {
                     <form onSubmit={handleSubmit}>
                         <div className='album-logo-and-message'>
                             <img className='logo-album-form' alt='Logo' src='https://cdn-icons-png.flaticon.com/128/174/174849.png' />
-                            <span>Album Creater</span>
+                            <span>Create an Album</span>
                         </div>
                         <div className='all-sign-up-form-inputs-labels'>
                             <label>Name</label>
@@ -148,8 +147,8 @@ const AlbumForm = () => {
                             <div className="album-form-photo-select">
                                 {allUserImages.length < 1 ?
                                     <div>
-                                        <span>Looks like you haven't uploaded any images. </span>
-                                        <span>Go ahead and upload <Link to='/upload' className="upload-here-link">here</Link></span>
+                                        <span>No images. </span>
+                                        <span>Upload <Link to='/upload' className="upload-here-link">here</Link></span>
                                     </div>
                                     :
                                     null}

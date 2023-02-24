@@ -147,7 +147,7 @@ const ImageShowFromAlbumRoom = () => {
                         <h1>404</h1>
                         <h2 className="h2-404-error">This is not the page you're looking for.</h2>
                         <h3 className="h3-404-error">It appears the photo you seek no longer exists.</h3>
-                        <h3 className="h3-404-error">Please return to the <Link className="a404-link-to-explore" to='/photos'>explore</Link>  page</h3>
+                        <h3 className="h3-404-error">Please return to the <Link className="a404-link-to-explore" to='/photos'>photos</Link>  page</h3>
                     </div>
             }
         </>

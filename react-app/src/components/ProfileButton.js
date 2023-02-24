@@ -31,14 +31,14 @@ function ProfileButton({ user, setLogin, setShowModal }) {
     return (
         <>
             <div className="profile-button-actual-div">
-                <img onClick={openMenu} className="nav-bar-profile-picture" src={"defaultProfilePic"} alt='DefaultPic' />
+                <img onClick={openMenu} className="nav-bar-profile-picture" src="https://cdn-icons-png.flaticon.com/512/2983/2983067.png" alt='DefaultPic' />
             </div>
             {showMenu && (user ?
                 (<div className="adjustment-for-profile-dropdown">
 
                     < div className="profile-dropdown">
                         <div className="hello-user-navbar">
-                            <span>Hello, </span>
+                            <span></span>
                             <Link to={`/people/${user.id}/photostream`} className="username"> {user.username}</Link>
                         </div>
                         <span>

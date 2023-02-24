@@ -35,7 +35,7 @@ input::file-selector-button {
 }
 
 input::file-selector-button:hover {
-    background-color: rgb(20, 156, 240);
+    background-color: rgb(44, 163, 237);
 }
 
 .upload-submit-button-div {

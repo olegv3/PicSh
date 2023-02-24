@@ -9,7 +9,9 @@ function importAll(r) {
     r.keys().forEach((item, index) => { images[item.replace('./', '')] = r(item); });
     return images
 }
-const images = importAll(require.context('', false, /\.(png|jpe?g|svg)$/));
+
+
+const images = importAll(require.context('../../assets/SplashPageImages', false, /\.(png|jpe?g|svg)$/));
 const splashPageImages = Object.values(images)
 
 const SplashPage = () => {
@@ -26,11 +28,11 @@ const SplashPage = () => {
 
     const shuffle = useCallback(() => {
         const index = Math.floor(Math.random() * splashPageImages.length);
-        // setArrTitles(splashPageImages[index].default);
+        setArrTitles(splashPageImages[index].default);
     }, []);
 
     useEffect(() => {
-        const intervalID = setInterval(shuffle, 4500);
+        const intervalID = setInterval(shuffle, 5000);
         return () => clearInterval(intervalID);
     }, [shuffle])
 

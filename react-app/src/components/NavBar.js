@@ -14,9 +14,9 @@ const NavBar = () => {
   if (sessionUser) {
     sessionLinks = (
       <>
-        {/* <div className='profile-button-div'>
+        <div className='profile-button-div'>
           <ProfileButton user={sessionUser} className='ProfileButton' />
-        </div> */}
+        </div>
 
       </>
     )
@@ -52,7 +52,7 @@ const NavBar = () => {
                   <span>
                     <NavLink className='links-on-nav-bar' to='/upload' exact={true} activeClassName='active'>
                       <div className='upload-icon-navbar'>
-                        {/* <i className="fa-solid fa-cloud-arrow-up"></i> */}
+                        <img src="https://picshrbucket.s3.us-east-2.amazonaws.com/upload.png" className='upload-navbar' />
                       </div>
                     </NavLink>
                   </span>

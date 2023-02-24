@@ -13,7 +13,7 @@ import AlbumForm from './components/AlbumForm/AlbumForm';
 import LogoutConfirm from './components/auth/LogoutConfirm';
 import UploadPicture from './components/UploadPicture/UploadPicture';
 import ViewImages from './components/UploadPicture/ViewImages';
-// import ImageShowRoom from './components/ImageShowRoom/ImageShowRoom';
+import ImageShowRoom from './components/ImageShowRoom/ImageShowRoom';
 import ImageShowRoomProfile from './components/ImageShowRoom/ImageShowRoomProfile';
 import ImageShowFromAlbumRoom from './components/ImageShowRoom/ImageShowRoomAlbum';
 import ImageShowRoomTags from './components/ImageShowRoom/ImageShowRoomTags';
@@ -64,12 +64,12 @@ function App() {
         <Route path="/photos" exact={true}>
           <ViewImages />
         </Route>
-        <Route path='/photos/tags/:tag/:photoId'>
+        {/* <Route path='/photos/tags/:tag/:photoId'>
           <ImageShowRoomTags />
-        </Route>
-        {/* <Route path="/photos/:id">
-          <ImageShowRoom />
         </Route> */}
+        <Route path="/photos/:id">
+          <ImageShowRoom />
+        </Route>
         <Route path='/' exact={true} >
           <SplashPage />
         </Route>

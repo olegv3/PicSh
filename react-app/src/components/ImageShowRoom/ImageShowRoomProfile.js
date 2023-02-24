@@ -54,7 +54,7 @@ const ImageShowRoomProfile = () => {
                                     <div className="icon-for-back-to-explore">
                                         <i className="fa-solid fa-arrow-left"></i>
                                     </div>
-                                    <span className="back-to-explore-link">Back to photostream</span>
+                                    <span className="back-to-explore-link">Back to Photos</span>
                                 </Link>
                             </div>
                             <div className="showroom-image-div">
