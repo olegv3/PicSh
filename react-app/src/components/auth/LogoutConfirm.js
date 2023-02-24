@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { logout } from "../../store/session";
+import './LogoutConfirm.css'
 
 const LogoutConfirm = () => {
     const { id } = useParams()
@@ -27,7 +28,7 @@ const LogoutConfirm = () => {
                     <div className="sign-up-form">
                         <form>
                             <div className="confirm-delete-message" >
-                                <span>Are You Sure You Want To Logout?</span>
+                                {/* <span>Confirm Logout?</span> */}
                             </div>
                             <div className='delete-cancel-button-div'>
                                 <button className='sign-up-submit-button' onClick={e => onLogout(e)}>Logout</button>

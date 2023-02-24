@@ -69,7 +69,8 @@ const ImageShowRoom = () => {
                                             <button className="edit-delete-button-image-showroom" onClick={event => deleteButton(event, currentImage?.id)}><img src="https://cdn-icons-png.flaticon.com/512/8134/8134441.png" className="delete-image" /></button>
                                         </div>
                                         :
-                                        <i className="fa-regular fa-star"></i>
+                                        // <i className="fa-regular fa-star"></i>
+                                        <></>
                                     }
                                     {/* <i className="fa-regular fa-square-plus"></i>
                                     <i className="fa-solid fa-share"></i>

@@ -17,6 +17,8 @@ import ImageShowRoom from './components/ImageShowRoom/ImageShowRoom';
 import ImageShowRoomProfile from './components/ImageShowRoom/ImageShowRoomProfile';
 import ImageShowFromAlbumRoom from './components/ImageShowRoom/ImageShowRoomAlbum';
 import ImageShowRoomTags from './components/ImageShowRoom/ImageShowRoomTags';
+import ConfirmDelete from './components/ConfirmDelete/ConfirmDelete';
+import UpdateImageDetails from './components/UpdateImageDetails/UpdateImageDetails';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -64,6 +66,12 @@ function App() {
         <Route path="/photos" exact={true}>
           <ViewImages />
         </Route>
+        <ProtectedRoute path="/photos/:id/delete-confirm">
+          <ConfirmDelete />
+        </ProtectedRoute>
+        <ProtectedRoute path="/photos/:userId/:id/edit-details">
+          <UpdateImageDetails />
+        </ProtectedRoute>
         {/* <Route path='/photos/tags/:tag/:photoId'>
           <ImageShowRoomTags />
         </Route> */}

@@ -1,0 +1,23 @@
+.confirm-delete-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 125px;
+}
+
+.delete-cancel-button-div {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.confirm-delete-message {
+    font-size: 1.2em;
+    margin-top: 1em;
+}

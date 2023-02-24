@@ -29,7 +29,7 @@ const UploadPicture = () => {
     useEffect(() => {
         const errors = []
         if (image) {
-            if (image?.type !== 'image/jpg' && image?.type !== 'image/jpeg' && image?.type !== 'image/png') errors.push('Please only upload png, jpg, or jpeg')
+            if (image?.type !== 'video/mp4' && image?.type !== 'image/jpg' && image?.type !== 'image/jpeg' && image?.type !== 'image/png') errors.push('Please only upload png, jpg, or jpeg')
 
             setTitle(image.name.split('.')[0])
 
@@ -122,7 +122,7 @@ const UploadPicture = () => {
 
                             <input
                                 className="choose-file-button-upload"
-                                type="file" 
+                                type="file"
                                 accept="image/*"
                                 placeholder="Upload Image"
                                 onChange={updateImage}

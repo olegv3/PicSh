@@ -1,0 +1,16 @@
+.update-image-form-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 10em;
+}
+
+.delete-cancel-button-div {
+    display: flex;
+    flex-direction: row;
+    gap: 1.25em;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+
+}

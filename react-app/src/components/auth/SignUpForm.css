@@ -71,13 +71,13 @@
 }
 
 .sign-up-submit-button {
-    width: 42%;
+    width: 40%;
     height: 3em;
     border-radius: .25em;
     border: none;
-    background-color: rgb(18, 143, 220);
+    background-color: rgb(50, 150, 217);
     color: rgb(255, 255, 249);
-    font-weight: 600;
+    font-weight: 400;
     cursor: pointer;
 
 }
