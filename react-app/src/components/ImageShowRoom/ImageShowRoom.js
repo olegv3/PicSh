@@ -44,6 +44,8 @@ const ImageShowRoom = () => {
         return history.push(`/photos/${currentUser.id}/${id}/edit-details?re-direct=${prevLocation.pathname}`)
     }
 
+
+
     return (
         <>
             {

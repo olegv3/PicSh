@@ -1,7 +1,7 @@
 import { useEffect, useState, useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import { Link, useHistory } from 'react-router-dom'
-import './SplashPage.css'
+import { Link, useHistory } from 'react-router-dom';
+import './SplashPage.css';
 
 
 function importAll(r) {
@@ -16,7 +16,7 @@ const splashPageImages = Object.values(images)
 
 const SplashPage = () => {
     const history = useHistory();
-    const [arrImages, setArrTitles] = useState("SlideshowStart");
+    const [arrImages, setArrTitles] = useState(splashPageImages[1].default)
 
     const sessionUser = useSelector(state => state.session.user)
 
