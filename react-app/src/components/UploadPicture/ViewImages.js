@@ -58,7 +58,8 @@ const ViewImages = () => {
                     {allImages.map((im) => (
                         <div key={im.id}>
                             <Link to={`/photos/${im.id}`} onClick={e => linkClick(e, im.id)}>
-                                <img src={im.url} className='images-on-display' alt='Images For Display' />
+                                <img src={im.url} onError={(e) => { e.target.onerror = null; e.target.src = "https://cdn-icons-png.flaticon.com/512/4897/4897859.png" }}
+                                 className='images-on-display' alt='Images For Display' />
                             </Link>
                             {/* {
                                 sessionUser && sessionUser.id === im.owner.id ?

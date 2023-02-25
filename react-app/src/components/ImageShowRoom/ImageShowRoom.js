@@ -59,7 +59,7 @@ const ImageShowRoom = () => {
                                 </Link>
                             </div>
                             <div className="showroom-image-div">
-                                <img className="showroom-image" src={currentImage?.url} />
+                                <img className="showroom-image" src={currentImage?.url} onError={(e) => { e.target.onerror = null; e.target.src = "https://www.theoxygenstore.com/images/source/No-image.jpg" }} />
                             </div>
                             <div className="bottom-of-showroom-image">
                                 <div className="icons-for-showroom-image">
@@ -72,9 +72,6 @@ const ImageShowRoom = () => {
                                         // <i className="fa-regular fa-star"></i>
                                         <></>
                                     }
-                                    {/* <i className="fa-regular fa-square-plus"></i>
-                                    <i className="fa-solid fa-share"></i>
-                                    <i className="fa-solid fa-download"></i> */}
                                 </div>
                             </div>
                         </div >
