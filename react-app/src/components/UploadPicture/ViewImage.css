@@ -33,7 +33,7 @@
     padding-top: 4em;
 }
 
-.mid-navbar-explore-page {
+/* .mid-navbar-explore-page {
     padding-left: 13.35em;
     display: flex;
     flex-direction: row;
@@ -43,7 +43,7 @@
     position: fixed;
     width: 100%;
     background-color: white;
-}
+} */
 
 .links-on-mid-navbar-in-dev {
     text-decoration: none;
@@ -63,6 +63,6 @@
     display: fixed;
 }
 
-.background-for-explore-page {
+/* .background-for-explore-page {
     background-color: rgb(243, 245, 246);
-}
+} */

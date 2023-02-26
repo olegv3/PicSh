@@ -8,7 +8,6 @@
 .showroom-image {
     padding-top: 1em;
     width: 60%;
-    /* height: 70%; */
     padding-bottom: 1em;
 }
 
@@ -45,7 +44,6 @@
     margin-bottom: 1em;
     gap: 1.5em;
     padding-right: 2em;
-    /* position: sticky; */
 
 }
 
@@ -64,35 +62,24 @@
 .rest-of-showroom-container {
     padding-top: 1em;
     background-color: rgb(243, 245, 246);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
 
 .profile-picture-showroom {
-    height: 4em;
-    width: 4em;
+    height: 3em;
+    width: 3em;
     border-radius: 5em;
-    margin-left: 1.25em;
-}
-
-.span-tag-pro {
-
-    font-size: .6em;
-    border: .2em solid black;
-    box-sizing: border-box;
-    padding-top: .05em;
-    padding-bottom: .05em;
-    padding-left: .3em;
-    padding-right: .3em;
-
-}
-
-.span-tag-pro-div {
-    padding-left: 2.3em;
+    margin: 1.5em;
 }
 
 .profile-username-title-follow {
     display: flex;
-    flex-direction: row;
-    gap: 1.25em;
+    align-items: center;
+    padding: auto;
+    margin-left: -29.5em;
 }
 
 .username-title-showroom {
@@ -100,10 +87,8 @@
     display: flex;
     flex-direction: column;
     gap: .5em;
-    font-weight: bolder;
-
-
-
+    font-weight: 600;
+    /* margin-left: -2em; */
 }
 
 .follow-button-showroom {
@@ -124,13 +109,6 @@
 
 }
 
-/* .border-div-showroom {
-    border-bottom: .075em solid rgb(207, 214, 217);
-    width: 86%;
-    margin-left: 6em;
-    padding-top: .75em;
-
-} */
 
 .username-follow-button-div-showroom {
     display: flex;
@@ -149,14 +127,6 @@
 }
 
 
-.description-showroom-span-div,
-.title-showroom-span-div {
-    white-space: wrap;
-    overflow-wrap: break-word;
-    text-overflow: clip;
-    width: 55em;
-}
-
 .under-dev-follow-button {
     font-size: .75em;
     padding-left: .5em;
@@ -168,7 +138,6 @@
     flex-direction: row;
     gap: .75em;
     position: relative;
-    /* bottom: .25em; */
 }
 
 .delete-image {
@@ -198,9 +167,7 @@
 .image-tags-showroom-div {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    width: 40em;
-    gap: .5em;
+    align-items: center;
 }
 
 
@@ -236,13 +203,11 @@
     margin-left: 6em;
 }
 
-.comment-div-showroom:hover {
-    background-color: white;
-}
 
 .link-for-users-comments {
     text-decoration: none;
     color: rgb(5, 58, 137);
+    margin-left: -0.9em;
 }
 
 .link-for-users-comments:hover {
@@ -260,11 +225,8 @@
 .comments-container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     gap: 1em;
     padding-top: 1em;
-    margin-right: 2em;
 }
 
 .single-comment-body-with-buttons {

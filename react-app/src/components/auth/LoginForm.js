@@ -89,7 +89,7 @@ const LoginForm = () => {
               <button className='login-submit-button' onClick={event => demoUser(event)}>Demo User</button>
             </div>
             <div className='terms-of-service-sign-up-div'>
-              <Link style={{ textDecoration: 'none', color: 'rgb(0,130,199)', fontSize: '.85em', cursor: 'not-allowed' }}>Forgot Password?</Link>
+              <Link style={{ textDecoration: 'none', color: 'rgb(0,130,199)', fontSize: '.85em', cursor: 'not-allowed' }}></Link>
             </div>
             <div className='sign-up-form-gray-line-before-already-member' />
             <div className='already-a-member-sign-up'> Not a member? <Link to='/sign-up' style={{ textDecoration: 'none', color: 'rgb(0,130,199)' }}>Sign up here.</Link></div>

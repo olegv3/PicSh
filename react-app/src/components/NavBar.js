@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink, Link, useLocation } from 'react-router-dom';
-// import Logo from '../assets/misc/Logo.png'
 import ProfileButton from './ProfileButton';
 import './NavBar.css'
-// import You from './You';
+import You from './You';
 
 
 const NavBar = () => {
@@ -29,7 +28,7 @@ const NavBar = () => {
             <NavLink className='links-on-nav-bar' to='/' exact={true} activeClassName='active'>
               <div className='container-for-right-navbar-links'>
 
-                <img src="https://cdn-icons-png.flaticon.com/128/174/174849.png" className='logo-navbar' />
+              <img src="https://cdn-icons-png.flaticon.com/128/174/174849.png" className='logo-navbar' />
                 <div className='container-for-name'>
                   <span className='site-name-navbar'>picshr</span>
                 </div>
@@ -39,7 +38,7 @@ const NavBar = () => {
               <div className='explore-link-navbar'>
                 <Link to='/photos' className='left-side-links-navbar'>Photos</Link>
                 <div className='you-dropdown-div-navbar'>
-                  {/* <You user={sessionUser} /> */}
+                  <You user={sessionUser} />
                 </div>
               </div>
               : null}
@@ -68,12 +67,12 @@ const NavBar = () => {
                   </NavLink>
                 </span>
                 <span>
-                  <NavLink className='links-on-nav-bar' to={`/login?re-direct=${prevLocation.pathname}`} exact={true} activeClassName='active'>
+                  <NavLink className='links-on-nav-bar' to={`/login?redirectTo=${prevLocation.pathname}`} exact={true} activeClassName='active'>
                     Log in
                   </NavLink>
                 </span>
                 <span>
-                  <NavLink className='link-for-signup' to={`/sign-up?re-direct=${prevLocation.pathname}`} exact={true} activeClassName='active'>
+                  <NavLink className='link-for-signup' to={`/sign-up?redirectTo=${prevLocation.pathname}`} exact={true} activeClassName='active'>
                     <span className='sign-up-navbar-text'>
                       Sign Up
                     </span>

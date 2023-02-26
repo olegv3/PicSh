@@ -1,7 +1,7 @@
 import { useEffect, useState, useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import { Link, useHistory } from 'react-router-dom';
-import './SplashPage.css';
+import { Link, useHistory } from 'react-router-dom'
+import './SplashPage.css'
 
 
 function importAll(r) {
@@ -11,7 +11,7 @@ function importAll(r) {
 }
 
 
-const images = importAll(require.context('../../assets/SplashPageImages', false, /\.(png|jpe?g|svg)$/));
+const images = importAll(require.context('../../images', false, /\.(png|jpe?g|svg)$/));
 const splashPageImages = Object.values(images)
 
 const SplashPage = () => {
@@ -27,14 +27,18 @@ const SplashPage = () => {
     }
 
     const shuffle = useCallback(() => {
-        const index = Math.floor(Math.random() * splashPageImages.length);
-        setArrTitles(splashPageImages[index].default);
-    }, []);
+        const randomIndex = Math.floor(Math.random() * splashPageImages.length)
+        setArrTitles(splashPageImages[randomIndex].default)
+    }, [])
+
+
 
     useEffect(() => {
-        const intervalID = setInterval(shuffle, 5000);
-        return () => clearInterval(intervalID);
-    }, [shuffle])
+        const interval = setInterval(() => {
+            shuffle();
+        }, 6000);
+        return () => clearInterval(interval);
+    }, [shuffle]);
 
 
     if (sessionUser) history.push('/photos')
@@ -47,16 +51,25 @@ const SplashPage = () => {
                         <div className='center-page-text-container'>
                             <h1>Find your inspiration.</h1>
                             <div className='span-tags-in-center-page'>
-                                <span>Join the PicShr community, home to 10</span>
+                                <span>Join the Picshr community, home to dozens of</span>
                                 <span>photos and 1 group.</span>
                             </div>
                             <button className='center-page-sign-up-button' onClick={event => startForFree(event)}>Start for free</button>
                         </div>
                     </div>
-                    <img src={arrImages} className='slideshow-splash-page' alt='' />
+                    <img src={arrImages} className='slideshow-splash-page' alt='Slideshow images' />
                 </div>
                 <div className='footer-splash-page'>
                     <div className='top-half-of-footer-splash'>
+                    </div>
+                    <div className='border-middle-footer-splash'></div>
+                    <div className='bottom-half-of-footer-splash'>
+                        <div className='left-side-bottom-footer-splash'>
+                        </div>
+                        <div className='middle-side-bottom-footer-splash'>
+                        </div>
+                        <div className='right-side-bottom-footer-splash'>
+                        </div>
                     </div>
                 </div>
             </div>

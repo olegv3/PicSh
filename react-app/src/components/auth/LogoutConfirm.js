@@ -28,7 +28,6 @@ const LogoutConfirm = () => {
                     <div className="sign-up-form">
                         <form>
                             <div className="confirm-delete-message" >
-                                {/* <span>Confirm Logout?</span> */}
                             </div>
                             <div className='delete-cancel-button-div'>
                                 <button className='sign-up-submit-button' onClick={e => onLogout(e)}>Logout</button>

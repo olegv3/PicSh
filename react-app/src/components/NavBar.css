@@ -1,5 +1,5 @@
 .whole-nav-bar {
-    background-color: rgba(25, 25, 26, 0.4);
+    background-color: rgba(37, 36, 36, 0.9);
     position: fixed;
     width: 100%;
     height: 3.5em;
@@ -13,6 +13,7 @@
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
+
 }
 
 .links-on-nav-bar:hover {
@@ -80,7 +81,7 @@
 }
 
 .you-dropdown-div-navbar {
-    margin-left: 2em;
+    margin-left: 4em;
 }
 
 .you-span-tag-navbar {
@@ -92,9 +93,10 @@
 .you-dropdown-links-div {
     display: flex;
     flex-direction: column;
-    background-color: rgb(47, 47, 48);
+    background-color: rgb(62, 62, 65);
     border-radius: .15em;
     margin-right: 1em;
+    margin-top: .8em;
     position: fixed;
     left: 20em;
 }

@@ -148,41 +148,6 @@ const UploadPicture = () => {
                                 value={description}
                             />
                         </div>
-                        {/* <div className='all-sign-up-form-inputs-labels'>
-                            <label></label>
-                            <input
-                                className='sign-up-form-inputs-only'
-                                placeholder="Tags (Not Required)"
-                                type="text"
-                                onChange={updateTags}
-                                value={tags}
-                            />
-                        </div> */}
-                        {/* <div className='all-sign-up-form-inputs-labels'>
-                            <label></label>
-                            <input
-                                className='sign-up-form-inputs-only'
-                                placeholder="People"
-                                type="text"
-                                onChange={updatePeople}
-                                value={people}
-                            />
-                        </div> */}
-                        {/* <div className='all-sign-up-form-inputs-labels'>
-                            <label></label>
-                            <select
-                                name="albums"
-                                id="albums"
-                                value={album}
-                                onChange={(e) => setAlbum(e.target.value)}
-                                className='sign-up-form-inputs-only'
-                            >
-                                <option value='' style={{ color: 'grey' }}>Choose Album (Not Required)</option>
-                                {userAlbumsArray.map((al) => (
-                                    <option key={al.id} value={al.id}>{al.name}</option>
-                                ))}
-                            </select>
-                        </div> */}
                         <div className='upload-submit-button-div'>
                             <button disabled={disable} className='sign-up-submit-button' type='submit'>Upload</button>
                             {(imageLoading) && <p>Loading...</p>}

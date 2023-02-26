@@ -1,49 +1,55 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory, useParams, Link } from "react-router-dom";
-import { getUserAlbums } from "../../store/album";
-import { uploadAlbum } from "../../store/album";
-import { getUserImages } from "../../store/image";
-import './AlbumForm.css'
-import ImageButton from "./ImageButton";
+import { useHistory, useParams } from "react-router-dom";
+import { oneAlbum } from "../../store/album";
+import { updateAlbum } from "../../store/album";
+import ImageButton from "../AlbumForm/ImageButton";
+
 
 const letters = Array.from("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz");
 
 
-const AlbumForm = () => {
+const EditAlbumForm = () => {
     const history = useHistory();
     const dispatch = useDispatch()
-    const { userId } = useParams()
     const [description, setDescription] = useState("")
     const [name, setName] = useState("")
     const [photos, setPhotos] = useState(new Set())
     const [selected, setSelected] = useState(false)
-    const [errors, setErrors] = useState({})
+    const [errors, setErrors] = useState([])
     const [disable, setDisable] = useState(true)
+    let { albumId } = useParams()
+    albumId = +albumId
+
+
 
     const currentUser = useSelector(state => state.session.user)
+    const currentAlbumImages = useSelector(state => state.albumReducer.currentAlbum.images)
 
-    const imagesObj = useSelector(state => {
-        return state
-    })
 
-    const allUserImages = Object.values(imagesObj.imageReducer.userImages)
+
+
 
 
     useEffect(() => {
-        const errors = {}
-        if (name.length > 0 && !letters.includes(name[0])) errors.name = ('Please provide a Name')
-        if (!selected) errors.photo = ('')
-        if (Object.keys(errors).length > 0) setDisable(true)
-        if (Object.keys(errors).length === 0 && name.length > 0 && selected) setDisable(false)
+        (async () => {
+            const res = await fetch(`/api/albums/${albumId}`)
+            const data = await res.json()
+            setName(data?.name)
+            setDescription(data?.description)
+        })()
+    }, [albumId])
+
+    useEffect(() => {
+        const errors = []
+        if (name.length < 1 || !letters.includes(name[0])) errors.push('Please provide a Name')
+        if (selected) errors.push('Albums must have at least one photo')
+        if (errors.length > 0) setDisable(true)
+        if (errors.length === 0) setDisable(false)
+
+
         setErrors(errors)
-    }, [name, selected, disable])
-
-
-
-    useEffect(() => {
-        dispatch(getUserImages(currentUser?.id))
-    }, [dispatch, currentUser])
+    }, [selected, name])
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -55,22 +61,46 @@ const AlbumForm = () => {
         if (errors.length > 0) return
         const images = Array.from(photos).join()
         const albumInfo = {
+            albumId: +albumId,
             name,
             description,
             images
         }
-        dispatch(uploadAlbum(albumInfo))
-        setTimeout(() => {
-            dispatch(getUserAlbums(userId));
-        }, 100)
-        setTimeout(() => {
-            history.push(`/people/${currentUser.id}/albums`)
-        }, 500)
+        const editedData = dispatch(updateAlbum(albumInfo))
+        if (editedData) {
+            return history.push(`/people/${currentUser.id}/albums`)
+
+        }
+    }
+
+    const photoSelect = (e, id) => {
+        e.preventDefault()
+
+
+        if (photos.has(id)) {
+            photos.delete(id)
+            setSelected(false)
+        } else {
+
+            photos.add(id)
+            if (currentAlbumImages?.length === photos.size) {
+                setSelected(true)
+            }
+        }
+
+        setPhotos(photos)
+
+
+        return photos
+
+
     }
 
     const cancelButton = (e) => {
         e.preventDefault()
         return history.push(`/people/${currentUser.id}/albums`)
+
+
     }
 
     const updateDescription = (e) => {
@@ -80,29 +110,9 @@ const AlbumForm = () => {
     const updateName = (e) => {
         setName(e.target.value)
     }
-
-
-
-    const photoSelect = (e, id) => {
-        e.preventDefault()
-
-
-        if (photos.has(id)) {
-            photos.delete(id)
-            if (photos.size === 0) {
-                setSelected(false)
-            }
-        } else {
-
-            photos.add(id)
-            setSelected(true)
-        }
-
-        return photos
-    }
-
-
-
+    useEffect(() => {
+        dispatch(oneAlbum(albumId))
+    }, [dispatch, albumId])
 
     return (
         <div className='background-for-album-form'>
@@ -110,8 +120,12 @@ const AlbumForm = () => {
                 <div className="album-form">
                     <form onSubmit={handleSubmit}>
                         <div className='album-logo-and-message'>
-                        <img className='logo-album-form' alt='Logo' src='https://cdn-icons-png.flaticon.com/128/174/174849.png' />
-                            <span>Create a new Album</span>
+                            <span></span>
+                        </div>
+                        <div className='errors-for-sign-up'>
+                            {errors.length > 0 ? errors.map((error, ind) => (
+                                <div key={ind}>{error}</div>
+                            )) : null}
                         </div>
                         <div className='all-sign-up-form-inputs-labels'>
                             <label></label>
@@ -122,9 +136,6 @@ const AlbumForm = () => {
                                 onChange={updateName}
                                 value={name}
                             />
-                            <div className='errors-for-sign-up'>
-                                {errors.name ? <div>{errors.name}</div> : null}
-                            </div>
                         </div>
                         <div className='all-sign-up-form-inputs-labels'>
                             <label></label>
@@ -137,26 +148,15 @@ const AlbumForm = () => {
                             />
                         </div>
                         <div className='all-sign-up-form-inputs-labels'>
-                            <label>
-                                <div className='errors-for-sign-up'>
-                                    {errors.photo ? <div>{errors.photo}</div> : null}
-                                </div>
-                            </label>
+                            <label>Click on photos you want to remove</label>
                             <div className="album-form-photo-select">
-                                {allUserImages.length < 1 ?
-                                    <div>
-                                        <span>No images. </span>
-                                        <span>Upload <Link to='/upload' className="upload-here-link">here</Link></span>
-                                    </div>
-                                    :
-                                    null}
-                                {allUserImages?.map((im) => (
+                                {currentAlbumImages?.map((im) => (
                                     <ImageButton photoSelect={photoSelect} image={im} />
                                 ))}
                             </div>
                         </div>
                         <div className='upload-submit-button-div'>
-                            <button disabled={disable} className='sign-up-submit-button' type='submit'>Create Album</button>
+                            <button disabled={disable} className='sign-up-submit-button' type='submit'>Update</button>
                             <button onClick={e => cancelButton(e)} className='sign-up-submit-button'>Cancel</button>
                         </div>
                     </form>
@@ -166,4 +166,4 @@ const AlbumForm = () => {
     )
 }
 
-export default AlbumForm;
+export default EditAlbumForm;

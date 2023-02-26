@@ -82,7 +82,6 @@ const UpdateImageDetails = () => {
 
         if (editedData) {
             history.push(prevLocation)
-            // dispatch(getImageByIdThunk(id))
         }
     }
 
@@ -98,7 +97,6 @@ const UpdateImageDetails = () => {
             <div className="update-image-form-container">
                 <div className='sign-up-form'>
                     <div className="confirm-delete-message">
-                        {/* <span>What would you like to edit about this images details?</span> */}
                     </div>
                     <form onSubmit={onSubmit}>
 

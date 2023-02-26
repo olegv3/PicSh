@@ -61,14 +61,6 @@ const ViewImages = () => {
                                 <img src={im.url} onError={(e) => { e.target.onerror = null; e.target.src = "https://cdn-icons-png.flaticon.com/512/4897/4897859.png" }}
                                  className='images-on-display' alt='Images For Display' />
                             </Link>
-                            {/* {
-                                sessionUser && sessionUser.id === im.owner.id ?
-                                    <div>
-                                        <button onClick={event => editButton(event, im.id)}>Edit</button>
-                                        <button onClick={event => deleteButton(event, im.id)}>Delete</button>
-                                    </div>
-                                    : null
-                            } */}
                         </div>
 
                     ))}

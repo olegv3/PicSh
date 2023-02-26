@@ -23,7 +23,7 @@ const DeleteAlbum = ({ albumId, userId, confirmed, setconfirm }) => {
     return (
         <div className="main-modal-container-confirm-delete">
             <div className="inside-confirm-delete-div">
-                <p className="p-on-confirm-delete-modal">Are you SURE you want to delete this album?</p>
+                <p className="p-on-confirm-delete-modal">Delete Album?</p>
                 <div className="two-confirm-delete-buttons-div">
                     <button className='confirm-delete-buttons' onClick={e => deleteAlbum(e, albumId)}>Yes</button>
                     <button className="confirm-delete-buttons" onClick={setconfirm}>No</button>

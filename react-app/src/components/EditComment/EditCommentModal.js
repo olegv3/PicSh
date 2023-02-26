@@ -1,0 +1,82 @@
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import EditCommentForm from "./EditCommentForm";
+import { getImageByIdThunk } from "../../store/image";
+import { useDispatch } from "react-redux";
+
+const EditCommentModal = ({ commentId, currentComment, user, commentOwner, imageId }) => {
+    const [showCommentForm, setShowCommentForm] = useState(false)
+    const dispatch = useDispatch();
+
+
+    const editCommentButton = document?.getElementsByClassName('edit-comment-button')
+
+    const deleteCommentButton = async (e, commentId) => {
+        e.preventDefault()
+
+        const res = await fetch(`/api/comments/${commentId}`, {
+            method: "DELETE"
+        })
+        if (res.ok) {
+            await res.json()
+            dispatch(getImageByIdThunk(imageId))
+        }
+    }
+
+    useEffect(() => {
+        if (!showCommentForm) return;
+
+        const closeCommentForm = () => {
+            setShowCommentForm(false)
+        }
+        for (let i = 0; i < editCommentButton.length; i++) {
+            editCommentButton[i].addEventListener('click', closeCommentForm);
+
+        }
+    }, [showCommentForm, editCommentButton])
+
+    const closeCommentForm = () => {
+        setShowCommentForm(!showCommentForm)
+    }
+
+
+
+    return (
+        <>
+            <div className="comment-container">
+
+                {showCommentForm ?
+                    <div>
+                        <EditCommentForm setShowCommentForm={setShowCommentForm} showCommentForm={showCommentForm} imageId={imageId} commentText={currentComment} commentId={commentId} />
+                    </div>
+                    :
+                    <div className="comment-body-div">
+                        <span>{currentComment}</span>
+                    </div>
+                }
+                <div>
+                    {user ?
+                        <>
+                            {
+                                user.id === commentOwner.id ?
+                                    <>
+                                        {!showCommentForm ?
+                                            <div className="comment-edit-and-delete-div">
+                                                <span onClick={closeCommentForm} className='edit-comment-button'><img src="https://cdn-icons-png.flaticon.com/512/2280/2280532.png" className="edit-image" /></span>
+                                                <span onClick={e => deleteCommentButton(e, commentId)} className='edit-comment-button' ><img src="https://cdn-icons-png.flaticon.com/512/8134/8134441.png" className="delete-image" /></span>
+                                            </div>
+                                            : null}
+                                    </>
+                                    : null
+                            }
+                        </>
+                        :
+                        null
+                    }
+                </div>
+            </div>
+        </>
+    )
+}
+
+export default EditCommentModal

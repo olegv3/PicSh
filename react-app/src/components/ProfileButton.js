@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import LogoutButton from '../components/auth/LogoutButton'
-// import defaultProfilePic from '../assets/misc/DefaultProfilePicture.jpg'
 
 
 function ProfileButton({ user, setLogin, setShowModal }) {

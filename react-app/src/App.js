@@ -1,24 +1,34 @@
-import React, { useState, useEffect } from "react";
-import { BrowserRouter } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
-import { Route, Switch } from "react-router-dom";
-import { authenticate } from "./store/session";
-import SplashPage from './components/SplashPage/SplashPage';
-import AlbumForm from './components/AlbumForm/AlbumForm';
-import LogoutConfirm from './components/auth/LogoutConfirm';
+import ProfileAbout from './components/ProfilePages/ProfileAbout';
+import { authenticate } from './store/session';
 import UploadPicture from './components/UploadPicture/UploadPicture';
 import ViewImages from './components/UploadPicture/ViewImages';
-import ImageShowRoom from './components/ImageShowRoom/ImageShowRoom';
-import ImageShowRoomProfile from './components/ImageShowRoom/ImageShowRoomProfile';
-import ImageShowFromAlbumRoom from './components/ImageShowRoom/ImageShowRoomAlbum';
-import ImageShowRoomTags from './components/ImageShowRoom/ImageShowRoomTags';
 import ConfirmDelete from './components/ConfirmDelete/ConfirmDelete';
+import SplashPage from './components/SplashPage/SplashPage';
 import UpdateImageDetails from './components/UpdateImageDetails/UpdateImageDetails';
+import ImageShowRoom from './components/ImageShowRoom/ImageShowRoom';
+import ProfilePhotoStream from './components/ProfilePages/ProfilePhotoStream';
+import ProfileAlbums from './components/ProfilePages/ProfileAlbums';
+import ProfileFaves from './components/ProfilePages/ProfileFaves';
+import ProfileGalleries from './components/ProfilePages/ProfileGalleries';
+import ProfileStats from './components/ProfilePages/ProfileStats';
+import ProfileGroups from './components/ProfilePages/ProfileGroups.js';
+import AlbumForm from './components/AlbumForm/AlbumForm';
+import AlbumShowRoom from './components/AlbumShowRoom/AlbumShowRoom';
+import EditAlbumForm from './components/EditAlbumForm/EditAlbumForm';
+import LogoutConfirm from './components/auth/LogoutConfirm';
+import ImageShowFromAlbumRoom from './components/ImageShowRoom/ImageShowRoomAlbum';
+import TagResults from './components/TagResults/TagResults';
+import ImageShowRoomTags from './components/ImageShowRoom/ImageShowRoomTags';
+import ImageShowRoomProfile from './components/ImageShowRoom/ImageShowRoomProfile';
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -38,28 +48,60 @@ function App() {
   }
 
 
+
+
   return (
     <BrowserRouter>
-    <NavBar />
-    <Switch>
-      <Route path="/login" exact={true}>
-        <LoginForm />
-          </Route>
-          <Route path="/sign-up" exact={true}>
-            <SignUpForm />
-          </Route>
-          <ProtectedRoute path="/users" exact={true} >
-            <UsersList />
-          </ProtectedRoute>
-          <Route path='/people/:userId/photostream/:photoId'>
+      <NavBar />
+      <Switch>
+        <Route path='/login' exact={true}>
+          <LoginForm />
+        </Route>
+        <Route path='/sign-up' exact={true}>
+          <SignUpForm />
+        </Route>
+        <ProtectedRoute path='/users' exact={true} >
+          <UsersList />
+        </ProtectedRoute>
+        <Route path='/people/:userId' exact={true} >
+          <ProfileAbout />
+        </Route>
+        <Route path='/people/:userId/photostream/:photoId'>
           <ImageShowRoomProfile />
         </Route>
+        <Route path='/people/:userId/photostream' exact={true} >
+          <ProfilePhotoStream />
+        </Route>
+        <Route path='/people/:userId/albums' exact={true} >
+          <ProfileAlbums />
+        </Route>
+        <ProtectedRoute path='/people/:userId/albums/new'>
+          <AlbumForm />
+        </ProtectedRoute>
+        <ProtectedRoute path='/people/:userId/albums/:albumId/edit'>
+          <EditAlbumForm />
+        </ProtectedRoute>
         <Route path='/people/:userId/albums/:albumId/photos/:photoId'>
           <ImageShowFromAlbumRoom />
         </Route>
-          <ProtectedRoute path='/people/:userId/albums/new'>
-          <AlbumForm />
-        </ProtectedRoute>
+        <Route path='/people/:userId/albums/:albumId'>
+          <AlbumShowRoom />
+        </Route>
+        <Route path='/people/:userId/favorites' exact={true} >
+          <ProfileFaves />
+        </Route>
+        <Route path='/people/:userId/galleries' exact={true} >
+          <ProfileGalleries />
+        </Route>
+        <Route path='/people/:userId/groups'>
+          <ProfileGroups />
+        </Route>
+        <Route path='/people/:userId/stats' exact={true} >
+          <ProfileStats />
+        </Route>
+        <Route path='/' exact={true} >
+          <SplashPage />
+        </Route>
         <ProtectedRoute path='/upload'>
           <UploadPicture />
         </ProtectedRoute>
@@ -72,23 +114,24 @@ function App() {
         <ProtectedRoute path="/photos/:userId/:id/edit-details">
           <UpdateImageDetails />
         </ProtectedRoute>
-        {/* <Route path='/photos/tags/:tag/:photoId'>
+        <Route path='/photos/tags/:tag/:photoId'>
           <ImageShowRoomTags />
-        </Route> */}
+        </Route>
+        <Route path='/photos/tags/:tag'>
+          <TagResults />
+        </Route>
         <Route path="/photos/:id">
           <ImageShowRoom />
-        </Route>
-        <Route path='/' exact={true} >
-          <SplashPage />
         </Route>
         <ProtectedRoute path='/logout-confirm'>
           <LogoutConfirm />
         </ProtectedRoute>
-        </Switch>
+        {/* <Route>
+          <h1>404</h1>
+        </Route> */}
+      </Switch>
     </BrowserRouter>
   );
 }
-
-
 
 export default App;

@@ -1,0 +1,109 @@
+.comment-textarea {
+    width: 35em;
+    height: 13em;
+    resize: none;
+    padding: 0em;
+    border-color: white;
+    margin-left: -4px;
+}
+
+
+.comment-textarea:focus,
+.edit-comment-textarea:focus {
+    border: .001em solid white;
+    outline: .005em solid white;
+}
+
+
+.comment-form-div {
+    position: relative;
+    max-width: 550px;
+    height: 200px;
+    border: 1px solid #1d0202;
+    margin: 100px auto;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.comment-form-div:after {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-top: 1px solid #1d0202;
+    border-left: 1px solid #1d0202;
+    border-right: 0px solid #1d0202;
+    border-bottom: 0px solid #1d0202;
+    top: 4.42%;
+    left: 20%;
+    margin-left: -25px;
+    content: '';
+    transform: rotate(45deg);
+    margin-top: -25px;
+    background-color: white;
+}
+
+
+.submit-button-edit-comment-div {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.submit-button-comment-div {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 5.25em;
+    margin-top: .5em;
+}
+
+.comments-container {
+    margin-top: 2em;
+}
+
+.submit-button-edit-comment {
+    color: white;
+    background-color: rgb(18, 143, 220);
+    border: none;
+    border-radius: .25em;
+    padding-top: .25em;
+    padding-bottom: .25em;
+    padding-left: 2em;
+    padding-right: 2em;
+    font-size: 1em;
+    width: 6.5em;
+    margin-right: 21em;
+    margin-top: 3em;
+}
+
+.submit-button-comment {
+    color: white;
+    background-color: rgb(18, 143, 220);
+    border: none;
+    border-radius: .25em;
+    padding-top: .25em;
+    padding-bottom: .25em;
+    padding-left: 1em;
+    padding-right: 2em;
+    font-size: 1em;
+    width: 6.5em;
+    margin-right: 21em;
+    margin-top: 3em;
+}
+
+.submit-button-comment:disabled,
+.submit-button-edit-comment:disabled {
+    background: #999;
+    color: #555;
+    cursor: not-allowed;
+}
+
+.submit-button-comment:hover,
+.submit-button-edit-comment:hover {
+    background-color: rgb(18, 156, 220);
+    cursor: pointer;
+}
+
+.comment-error {
+    color: red;
+}
