@@ -53,10 +53,10 @@ function ProfilePhotoStream() {
                 :
                 <>
                     {currentUser?.id === parseInt(userId) ?
-                    
+
                         <div className='no-images-uploaded'>
                             <h1></h1>
-                            <h1>To upload an image click <Link to='/upload' className='upload-here-profile'>here</Link>.</h1>
+                            <h2>Click <Link to='/upload' className='upload-here-profile'>here </Link> to upload your first image &#128512;</h2>
                         </div>
                         :
                         <div className='no-images-uploaded'>
