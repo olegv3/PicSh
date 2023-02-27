@@ -121,7 +121,7 @@ const UpdateImageDetails = () => {
                                 value={description}
                             />
                         </div>
-                        <div className='all-sign-up-form-inputs-labels'>
+                        {/* <div className='all-sign-up-form-inputs-labels'>
                             <label></label>
                             <input
                                 className='sign-up-form-inputs-only'
@@ -140,7 +140,7 @@ const UpdateImageDetails = () => {
                                 onChange={updatePeople}
                                 value={people}
                             />
-                        </div>
+                        </div> */}
                         <div className='all-sign-up-form-inputs-labels'>
                             <label></label>
                             <select
