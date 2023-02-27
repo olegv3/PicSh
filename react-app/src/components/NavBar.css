@@ -16,9 +16,9 @@
 
 }
 
-.links-on-nav-bar:hover {
-    color: black;
-}
+/* .links-on-nav-bar:hover {
+    color: rgb(128, 125, 125);
+} */
 
 .logo-navbar {
     box-sizing: border-box;
@@ -93,8 +93,9 @@
 .you-dropdown-links-div {
     display: flex;
     flex-direction: column;
-    background-color: rgb(62, 62, 65);
-    border-radius: .15em;
+    background-color: rgb(255, 255, 255);
+    border: .01em solid rgb(32, 32, 32);
+    border-radius: .25em;
     margin-right: 1em;
     margin-top: .8em;
     position: fixed;
@@ -103,14 +104,15 @@
 
 .links-for-you-navbar {
     text-decoration: none;
-    color: white;
-    border: .1em solid rgb(32, 32, 32);
+    color: rgb(0, 0, 0);
+    /* border: .1em solid rgb(32, 32, 32); */
     padding: .5em;
     border-radius: .15em;
 }
 
 .links-for-you-navbar:hover {
-    text-decoration: underline;
+    /* text-decoration: underline; */
+    background-color: rgba(159, 157, 157, 0.1);
 }
 
 .container-for-name {

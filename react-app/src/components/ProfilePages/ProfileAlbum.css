@@ -49,6 +49,7 @@
 .album-edit-delete-buttons {
     display: flex;
     flex-direction: row;
+    border: none;
     /* height: 1.5em; */
     gap: .5em;
     padding-top: .1em;
@@ -66,9 +67,9 @@
     cursor: pointer;
 }
 
-.edit-delete-buttons-albums:hover {
+/* .edit-delete-buttons-albums:hover {
     box-shadow: 0px 0px 2px rgb(0, 0, 0);
-}
+} */
 
 .add-album-container {
     display: flex;
