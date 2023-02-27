@@ -12,7 +12,7 @@
 }
 
 .background-for-album-form {
-    background-image: url('https://picshrbucket.s3.us-east-2.amazonaws.com/picshr_background.jpg');
+    background-image: url('https://d3a5ukb11xbbmk.cloudfront.net/picshr_background.jpg');
     background-size: cover;
     background-attachment: fixed;
     height: 100vh;

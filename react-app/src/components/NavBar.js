@@ -28,7 +28,7 @@ const NavBar = () => {
             <NavLink className='links-on-nav-bar' to='/' exact={true} activeClassName='active'>
               <div className='container-for-right-navbar-links'>
 
-              <img src="https://cdn-icons-png.flaticon.com/128/174/174849.png" className='logo-navbar' />
+                <img src="https://cdn-icons-png.flaticon.com/128/174/174849.png" className='logo-navbar' />
                 <div className='container-for-name'>
                   <span className='site-name-navbar'>picshr</span>
                 </div>
@@ -51,7 +51,7 @@ const NavBar = () => {
                   <span>
                     <NavLink className='links-on-nav-bar' to='/upload' exact={true} activeClassName='active'>
                       <div className='upload-icon-navbar'>
-                        <img src="https://picshrbucket.s3.us-east-2.amazonaws.com/upload.png" className='upload-navbar' />
+                        <img src="https://d3a5ukb11xbbmk.cloudfront.net/upload.png" className='upload-navbar' />
                       </div>
                     </NavLink>
                   </span>
