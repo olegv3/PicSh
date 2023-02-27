@@ -88,7 +88,7 @@ const EditAlbumForm = () => {
             }
         }
 
-        setPhotos(photos)
+        // setPhotos(photos)
 
 
         return photos

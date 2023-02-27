@@ -2,13 +2,13 @@ from app.models import db, Comment, environment, SCHEMA
 
 def seed_comments():
     comment1 = Comment(
-        user_id=1, image_id=1, comment="I love this photo 1!"
+        user_id=1, image_id=1, comment="Wow! I love this photo!"
     )
     comment2 = Comment(
-        user_id=2, image_id=1, comment="I love this photo 2!"
+        user_id=2, image_id=1, comment="Love this photo"
     )
     comment3 = Comment(
-        user_id=3, image_id=1, comment="I love this photo 3!"
+        user_id=3, image_id=1, comment="This is a great photo"
     )
 
     db.session.add(comment1)
