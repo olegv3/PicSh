@@ -6,19 +6,35 @@ import { getAllImages } from "../../store/image";
 import './ViewImage.css'
 import { getImageByIdThunk } from "../../store/image";
 
+
+const shuffle = (array) => {
+    let currentIndex = array.length, temporaryValue, randomIndex;
+
+
+    while (0 !== currentIndex) {
+
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+}
+
+
+
 const ViewImages = () => {
     const dispatch = useDispatch()
     const history = useHistory();
-
 
     const imagesObj = useSelector(state => {
         return state
     })
 
-
-
     const allImages = Object.values(imagesObj.imageReducer.allImages)
-
 
     const linkClick = (e, photoId) => {
         e.preventDefault()
@@ -29,7 +45,6 @@ const ViewImages = () => {
     }
 
 
-
     useEffect(() => {
         dispatch(getAllImages())
     }, [dispatch])
@@ -38,8 +53,7 @@ const ViewImages = () => {
         window.scrollTo(0, 0)
     }, [])
 
-
-
+    shuffle(allImages)
 
 
     return (
