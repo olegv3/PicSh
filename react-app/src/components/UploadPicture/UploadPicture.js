@@ -25,11 +25,10 @@ const UploadPicture = () => {
 
 
 
-
     useEffect(() => {
         const errors = []
         if (image) {
-            if (image?.type !== 'video/mp4' && image?.type !== 'image/jpg' && image?.type !== 'image/jpeg' && image?.type !== 'image/png') errors.push('Please only upload png, jpg, or jpeg')
+            if (image?.type !== 'image/jpg' && image?.type !== 'image/JPG' &&  image?.type !== 'image/jpeg' && image?.type !== 'image/png') errors.push('Please only upload png, jpg, or jpeg')
 
             setTitle(image.name.split('.')[0])
 
@@ -63,6 +62,7 @@ const UploadPicture = () => {
         formData.append("people", people)
         if (album > 0) formData.append("albums", +album)
 
+
         setImageLoading(true);
 
         const res = await fetch('/api/images', {
@@ -73,17 +73,20 @@ const UploadPicture = () => {
             const data = await res.json();
             setImageLoading(false);
             setTimeout(() => {
-                history.push(`/photos/${data.id}`);
+                if (album > 0) history.push(`/people/${currentUser.id}/albums/${album}`)
+                else history.push(`/photos/${data.id}`)
             }, 500)
-
         }
         else {
             setImageLoading(false);
 
             console.log("error");
-
         }
     }
+
+
+
+
 
     const updateImage = (e) => {
         const file = e.target.files[0];
