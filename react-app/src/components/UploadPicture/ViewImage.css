@@ -43,17 +43,26 @@
   }
 
   .links-on-mid-navbar-in-dev {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    height: 40px;
+    width: 50px;
+    position: relative;
     text-decoration: none;
-    color: var(--color-gray);
-    cursor: not-allowed;
+
   }
 
-  .links-on-mid-navbar-in-dev:hover,
-  .links-on-mid-navbar-active {
+  .links-on-mid-navbar-in-dev img {
+    height: 40px;
+    width: 50px;
+    position: absolute;
+    top: 90%;
+    left: 120%;
+    margin-left: auto;
+    margin-right: auto;
+    transform: translate(-50%, -50%);
     text-decoration: none;
-    color: var(--color-black);
-    border-bottom: 0.2em solid var(--color-blue);
-    padding-bottom: 1em;
   }
 
   .fix-position-container-mid-navbar {

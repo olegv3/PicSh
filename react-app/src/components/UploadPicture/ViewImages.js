@@ -109,7 +109,7 @@ const ViewImages = () => {
               () => {
                 toggleTheme();
               }
-            } className="links-on-mid-navbar-in-dev"><span></span></button>
+            } className="links-on-mid-navbar-in-dev"><img src="https://cdn-icons-png.flaticon.com/512/6077/6077095.png" alt="Theme Toggle" /></button>
           </div>
         </div>
         <div className="all-images-explore-page">
