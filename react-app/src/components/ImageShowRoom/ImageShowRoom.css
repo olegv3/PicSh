@@ -9,11 +9,14 @@
     padding-top: 1em;
     width: 60%;
     padding-bottom: 1em;
+    margin: auto;
+    max-width: 100%;
 }
 
 .showroom-image-div {
     display: flex;
     justify-content: center;
+    align-items: center;
 
 }
 
@@ -78,7 +81,7 @@
 .profile-username-title-follow {
     display: flex;
     align-items: center;
-    padding: auto;
+    /* padding: auto; */
     margin-left: -34em;
 }
 
@@ -95,10 +98,7 @@
     color: white;
     background-color: rgb(18, 143, 220);
     border: none;
-    padding-left: 1em;
-    padding-right: 1em;
-    padding-top: .25em;
-    padding-bottom: .25em;
+    padding: .25em 1em;
     font-size: .85em;
     font-weight: bold;
     border-radius: .15em;

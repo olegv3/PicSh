@@ -13,12 +13,7 @@
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
-
 }
-
-/* .links-on-nav-bar:hover {
-    color: rgb(128, 125, 125);
-} */
 
 .logo-navbar {
     box-sizing: border-box;
@@ -105,13 +100,11 @@
 .links-for-you-navbar {
     text-decoration: none;
     color: rgb(0, 0, 0);
-    /* border: .1em solid rgb(32, 32, 32); */
     padding: .5em;
     border-radius: .15em;
 }
 
 .links-for-you-navbar:hover {
-    /* text-decoration: underline; */
     background-color: rgba(159, 157, 157, 0.1);
 }
 

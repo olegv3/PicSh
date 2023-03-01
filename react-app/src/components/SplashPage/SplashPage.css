@@ -88,7 +88,6 @@
 }
 
 
-
 .footer-span-splash-page {
     color: rgb(136, 136, 136);
     box-sizing: border-box;
@@ -100,8 +99,6 @@
     flex-direction: row;
     gap: 1.5em;
     box-sizing: border-box;
-
-
 }
 
 .top-half-of-footer-splash {
@@ -135,8 +132,6 @@
     display: flex;
     margin-left: auto;
     margin-right: auto;
-
-    /* border: .05em solid rgba(56, 56, 58, 0.709); */
     width: 93%;
     box-sizing: border-box;
 
@@ -148,8 +143,6 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-
-
 }
 
 .center-page-text-container {
