@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams, Link } from "react-router-dom";
-import { getUserAlbums } from "../../store/album";
-import { uploadAlbum } from "../../store/album";
+import { getUserAlbums, uploadAlbum } from "../../store/album";
 import { getUserImages } from "../../store/image";
-import './AlbumForm.css'
 import ImageButton from "./ImageButton";
+import "./AlbumForm.css";
+
 
 const letters = Array.from("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz");
 

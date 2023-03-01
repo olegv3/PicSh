@@ -113,13 +113,14 @@ const ImageShowRoomTags = () => {
                                         </div>
                                     ))}
                                 </div>
-                                {currentUser ?
-                                    <div className="comment-form-div-image-showroom">
-                                        <CommentForm user={currentUser} imageId={currentImage?.id} />
-                                    </div>
-                                    :
-                                    <div>
-                                        <CommentForm />
+                                {currentUser && currentImage?.owner?.id !== currentUser.id &&
+                                <div className="comment-form-div-image-showroom">
+                               <CommentForm user={currentUser} imageId={currentImage?.id} />
+                                   </div>
+                                 }
+                                 {!currentUser &&
+                                  <div>
+                                  <CommentForm />
                                     </div>
                                 }
 

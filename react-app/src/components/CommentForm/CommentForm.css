@@ -1,10 +1,10 @@
 .comment-textarea {
     width: 35em;
-    height: 13em;
+    height: 53px;
     resize: none;
     padding: 0em;
     border-color: white;
-    margin-left: -4px;
+    margin-left: 1px;
 }
 
 
@@ -18,7 +18,7 @@
 .comment-form-div {
     position: relative;
     max-width: 550px;
-    height: 200px;
+    height: 100px;
     border: 1px solid #1d0202;
     margin: 100px auto;
     padding: 20px;
@@ -35,12 +35,12 @@
     border-left: 1px solid #1d0202;
     border-right: 0px solid #1d0202;
     border-bottom: 0px solid #1d0202;
-    top: 4.42%;
+    top: 4.3%;
     left: 20%;
     margin-left: -25px;
     content: '';
     transform: rotate(45deg);
-    margin-top: -25px;
+    margin-top: -20.4px;
     background-color: white;
 }
 

@@ -1,112 +1,111 @@
-import React, { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import './UploadPicture.css'
+import "./UploadPicture.css";
 import { getUserAlbums } from "../../store/album";
 import { getUserImages } from "../../store/image";
 
 const UploadPicture = () => {
-    const history = useHistory();
-    const dispatch = useDispatch()
-    const [image, setImage] = useState(null);
-    const [imageLoading, setImageLoading] = useState(false);
-    const [title, setTitle] = useState("")
-    const [description, setDescription] = useState("")
-    const [tags, setTags] = useState("")
-    const [people, setPeople] = useState("")
-    const [album, setAlbum] = useState(0)
-    const [errors, setErrors] = useState([])
-    const [disable, setDisable] = useState(true)
+  const history = useHistory();
+  const dispatch = useDispatch();
+  const currentUser = useSelector((state) => state.session.user);
+  const userAlbums = useSelector((state) => state.albumReducer.albumsForUser);
+  const userAlbumsArray = Object.values(userAlbums);
+  const [image, setImage] = useState(null);
+  const [imageLoading, setImageLoading] = useState(false);
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [tags, setTags] = useState("");
+  const [people, setPeople] = useState("");
+  const [album, setAlbum] = useState("");
+  const [errors, setErrors] = useState([]);
+  const [disable, setDisable] = useState(true);
 
-    const currentUser = useSelector(state => state.session.user)
+  useEffect(() => {
+    const errors = [];
+    if (image) {
+      if (
+        !["image/jpg", "image/JPG", "image/jpeg", "image/png"].includes(
+          image.type
+        )
+      ) {
+        errors.push("Please only upload png, jpg, or jpeg");
+      }
+      setTitle(image.name.split(".")[0]);
+    } else {
+      setTitle("");
+    }
+    if (!image) {
+      errors.push("");
+    }
+    setErrors(errors);
+    setDisable(errors.length > 0);
+  }, [image]);
 
-    const userAlbums = useSelector(state => { return state })
-    const userAlbumsArray = Object.values(userAlbums.albumReducer.albumsForUser)
+  useEffect(() => {
+    dispatch(getUserAlbums(currentUser.id));
+  }, [currentUser.id, dispatch]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
-
-    useEffect(() => {
-        const errors = []
-        if (image) {
-            if (image?.type !== 'image/jpg' && image?.type !== 'image/JPG' &&  image?.type !== 'image/jpeg' && image?.type !== 'image/png') errors.push('Please only upload png, jpg, or jpeg')
-
-            setTitle(image.name.split('.')[0])
-
-
-        } else setTitle('')
-        if (!image) errors.push('')
-        if (errors.length > 0) setDisable(true)
-        if (errors.length === 0) setDisable(false)
-        setErrors(errors)
-
-
-    }, [image, disable])
-
-    useEffect(() => {
-        dispatch(getUserAlbums(currentUser.id))
-    }, [currentUser.id, dispatch])
-
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    }, [])
-
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        if (errors.length > 0) return
-        const formData = new FormData();
-        formData.append("image", image);
-        formData.append("title", title)
-        formData.append("description", description)
-        formData.append("tags", tags)
-        formData.append("people", people)
-        if (album > 0) formData.append("albums", +album)
-
-
-        setImageLoading(true);
-
-        const res = await fetch('/api/images', {
-            method: "POST",
-            body: formData,
-        });
-        if (res.ok) {
-            const data = await res.json();
-            setImageLoading(false);
-            setTimeout(() => {
-                if (album > 0) history.push(`/people/${currentUser.id}/albums/${album}`)
-                else history.push(`/photos/${data.id}`)
-            }, 500)
-        }
-        else {
-            setImageLoading(false);
-
-            console.log("error");
-        }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (errors.length > 0) {
+      return;
+    }
+    const formData = new FormData();
+    formData.append("image", image);
+    formData.append("title", title);
+    formData.append("description", description);
+    formData.append("tags", tags);
+    formData.append("people", people);
+    if (album) {
+      formData.append("albums", album);
     }
 
+    setImageLoading(true);
+    const res = await fetch("/api/images", {
+      method: "POST",
+      body: formData,
+    });
+    setImageLoading(false);
 
-
-
-
-    const updateImage = (e) => {
-        const file = e.target.files[0];
-        setImage(file);
+    if (res.ok) {
+      const data = await res.json();
+      if (album) {
+        history.push(`/people/${currentUser.id}/albums/${album}`);
+      } else {
+        history.push(`/people/${currentUser.id}/photostream/${data.id}`);
+      }
+    } else {
+      console.log("error");
     }
+  };
 
-    const updateDescription = (e) => {
-        setDescription(e.target.value)
-    }
+  const updateImage = (e) => {
+    setImage(e.target.files[0]);
+  };
 
-    const updateTags = (e) => {
-        setTags(e.target.value)
-    }
+  const updateDescription = (e) => {
+    setDescription(e.target.value);
+  };
 
-    const updatePeople = (e) => {
-        setPeople(e.target.value)
-    }
-    const updateTitle = (e) => {
-        setTitle(e.target.value)
-    }
+  const updateTags = (e) => {
+    setTags(e.target.value);
+  };
+
+  const updatePeople = (e) => {
+    setPeople(e.target.value);
+  };
+
+  const updateTitle = (e) => {
+    setTitle(e.target.value);
+  };
+
+
+
     return (
         <div className='background-for-signup-and-login'>
             <div className="whole-upload-container">

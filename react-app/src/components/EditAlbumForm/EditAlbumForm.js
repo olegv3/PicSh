@@ -22,13 +22,8 @@ const EditAlbumForm = () => {
     albumId = +albumId
 
 
-
     const currentUser = useSelector(state => state.session.user)
     const currentAlbumImages = useSelector(state => state.albumReducer.currentAlbum.images)
-
-
-
-
 
 
     useEffect(() => {
@@ -87,8 +82,6 @@ const EditAlbumForm = () => {
                 setSelected(true)
             }
         }
-
-        // setPhotos(photos)
 
 
         return photos
