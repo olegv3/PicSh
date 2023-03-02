@@ -1,6 +1,7 @@
 import { useEffect, useState, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
+import Footer from '../Footer/Footer';
 import './SplashPage.css';
 
 const importAll = (r) => {
@@ -68,6 +69,7 @@ const SplashPage = () => {
           <div className="middle-side-bottom-footer-splash"></div>
           <div className="right-side-bottom-footer-splash"></div>
         </div>
+        <Footer />
       </div>
     </div>
   );

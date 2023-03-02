@@ -3,11 +3,12 @@ import { useSelector } from 'react-redux';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import ProfileButton from './ProfileButton';
 import You from './You';
-import './NavBar.css'
+import './NavBar.css';
 
 const NavBar = () => {
-  const sessionUser = useSelector(state => state.session.user)
-  const prevLocation = useLocation();
+  const sessionUser = useSelector(state => state.session.user);
+  const location = useLocation();
+  const isSplashPage = location.pathname === '/';
 
   const sessionLinks = sessionUser && (
     <div className='profile-button-div'>
@@ -43,12 +44,12 @@ const NavBar = () => {
         </NavLink>
       </span>
       <span>
-        <NavLink className='links-on-nav-bar' to={`/login?redirectTo=${prevLocation.pathname}`} exact activeClassName='active'>
+        <NavLink className='links-on-nav-bar' to={`/login?redirectTo=${location.pathname}`} exact activeClassName='active'>
           Log in
         </NavLink>
       </span>
       <span>
-        <NavLink className='link-for-signup' to={`/sign-up?redirectTo=${prevLocation.pathname}`} exact activeClassName='active'>
+        <NavLink className='link-for-signup' to={`/sign-up?redirectTo=${location.pathname}`} exact activeClassName='active'>
           <span className='sign-up-navbar-text'>
             Sign Up
           </span>
@@ -57,20 +58,26 @@ const NavBar = () => {
     </>
   )
 
+  const logoAndLinks = (
+    <>
+      <NavLink className='links-on-nav-bar' to='/' exact activeClassName='active'>
+        <div className='container-for-right-navbar-links'>
+          <img src="https://cdn-icons-png.flaticon.com/128/174/174849.png" className='logo-navbar' alt='logo' />
+          <div className='container-for-name'>
+            <span className='site-name-navbar'>picshr</span>
+          </div>
+        </div>
+      </NavLink>
+      {exploreLink}
+    </>
+  )
+
   return (
-    <div className='whole-nav-bar'>
+    <div className={`whole-nav-bar${isSplashPage ? ' transparent' : ''}`}>
       <nav>
         <div className='navbar-main-container'>
-          <div className='navbar-left-side'>
-            <NavLink className='links-on-nav-bar' to='/' exact activeClassName='active'>
-              <div className='container-for-right-navbar-links'>
-                <img src="https://cdn-icons-png.flaticon.com/128/174/174849.png" className='logo-navbar' alt='logo' />
-                <div className='container-for-name'>
-                  <span className='site-name-navbar'>picshr</span>
-                </div>
-              </div>
-            </NavLink>
-            {exploreLink}
+          <div className={`navbar-left-side${isSplashPage ? ' navbar-left-side-splash' : ''}`}>
+            {isSplashPage ? logoAndLinks : logoAndLinks}
           </div>
           <div className='navbar-right-side'>
             {navRightSide}

@@ -41,7 +41,7 @@ const CommentForm = ({ user, imageId }) => {
             error.push('Error, blank comments not allowed');
         }
         if (comment.length > 100) {
-            error.push('Error......Comments cannot exceed 100 characters');
+            error.push('Comments cannot exceed 100 characters');
         }
         setErrors(error);
         setDisable(error.length > 0);
@@ -52,7 +52,7 @@ const CommentForm = ({ user, imageId }) => {
             <form onSubmit={handleSubmit}>
                 <div className="comment-form-div">
                     {errors.length > 0 &&
-                        <span className="comment-error">{errors[0]}</span>}
+                        <h5 className="comment-error">{errors[0]}</h5>}
                     <textarea
                         className='comment-textarea'
                         placeholder="Add a comment"

@@ -1,5 +1,5 @@
 .whole-nav-bar {
-    background-color: rgba(37, 36, 36, 0.9);
+    background-color: rgba(32, 32, 34, 0.98);
     position: fixed;
     width: 100%;
     height: 3.5em;
@@ -7,12 +7,19 @@
     box-sizing: border-box;
 }
 
+.transparent {
+    background-color: rgba(37, 36, 36, 0.2);
+    box-shadow: none;
+
+}
+
+
 .links-on-nav-bar {
     color: white;
     text-decoration: none;
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 .logo-navbar {

@@ -43,7 +43,7 @@ const EditCommentForm = ({
     if (comment.length > 100) {
         error.push("Comments cannot exceed 100 characters");
     }
-    
+
     setErrors(error);
     setDisable(error.length > 0);
   }, [comment]);
@@ -53,7 +53,7 @@ const EditCommentForm = ({
       <form onSubmit={handleSubmit}>
         <div className="edit-comment-form-div">
           {errors.length > 0 && (
-            <span className="comment-error">{errors[0]}</span>
+            <h5 className="comment-error">{errors[0]}</h5>
           )}
           <textarea
             className="edit-comment-textarea"

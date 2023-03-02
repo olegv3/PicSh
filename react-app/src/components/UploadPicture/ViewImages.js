@@ -126,7 +126,7 @@ const ViewImages = () => {
             </div>
           ))}
         </div>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </div>
   );
