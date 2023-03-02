@@ -125,7 +125,7 @@ const ImageShowRoomProfile = () => {
 
                             </div>
                         </div>
-                        <Footer />
+                        {/* <Footer /> */}
                     </>
                     :
                     <div className="photo-no-exist">

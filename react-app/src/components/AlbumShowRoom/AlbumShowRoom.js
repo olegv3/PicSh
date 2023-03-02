@@ -23,6 +23,7 @@ const AlbumShowRoom = () => {
 
   return (
     <div className='whole-album-showroom-container'>
+
       <div className='album-banner-showroom'>
         <div className='album-name-description-div'>
           <span className='album-name-showroom'>
@@ -56,7 +57,7 @@ const AlbumShowRoom = () => {
           </div>
         ))}
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

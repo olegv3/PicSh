@@ -48,8 +48,6 @@ const UpdateImageDetails = () => {
         window.scrollTo(0, 0)
     }, [])
 
-
-
     const updateTitle = (e) => {
         setTitle(e.target.value)
     }
@@ -92,8 +90,6 @@ const UpdateImageDetails = () => {
 
     return (
         <div className='background-for-signup-and-login'>
-
-
             <div className="update-image-form-container">
                 <div className='sign-up-form'>
                     <div className="confirm-delete-message">
@@ -110,7 +106,6 @@ const UpdateImageDetails = () => {
                                 value={title}
                             />
                         </div>
-
                         <div className='all-sign-up-form-inputs-labels'>
                             <label></label>
                             <input
@@ -121,26 +116,6 @@ const UpdateImageDetails = () => {
                                 value={description}
                             />
                         </div>
-                        {/* <div className='all-sign-up-form-inputs-labels'>
-                            <label></label>
-                            <input
-                                className='sign-up-form-inputs-only'
-                                placeholder="Tags"
-                                type="text"
-                                onChange={updateTags}
-                                value={tags}
-                            />
-                        </div>
-                        <div className='all-sign-up-form-inputs-labels'>
-                            <label></label>
-                            <input
-                                className='sign-up-form-inputs-only'
-                                placeholder="People"
-                                type="text"
-                                onChange={updatePeople}
-                                value={people}
-                            />
-                        </div> */}
                         <div className='all-sign-up-form-inputs-labels'>
                             <label></label>
                             <select
@@ -150,7 +125,7 @@ const UpdateImageDetails = () => {
                                 onChange={(e) => setAlbum(e.target.value)}
                                 className='sign-up-form-inputs-only'
                             >
-                                <option value='' style={{ color: 'grey' }}></option>
+                                <option value='' style={{ color: 'grey' }}>Optional</option>
                                 {userAlbumsArray.map((al) => (
                                     <>
                                         {currentImage?.albums.includes(al.id) ? null :

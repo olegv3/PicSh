@@ -123,7 +123,7 @@ const ImageShowFromAlbumRoom = () => {
                                 }
                             </div>
                         </div>
-                        <Footer />
+                        {/* <Footer /> */}
                     </>
                     :
                     <div className="photo-no-exist">
