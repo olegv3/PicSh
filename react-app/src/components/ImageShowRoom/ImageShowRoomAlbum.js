@@ -127,7 +127,10 @@ const ImageShowFromAlbumRoom = () => {
                     </>
                     :
                     <div className="photo-no-exist">
-                    </div>
+      <img src="https://www.tripwiremagazine.com/wp-content/uploads/2010/11/Fotolia.jpg" alt="Error 404" />
+      <p>Oops! Looks like you took a wrong turn.</p>
+      <Link to="/">Go back to home page</Link>
+    </div>
             }
         </>
 
