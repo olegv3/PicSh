@@ -39,7 +39,7 @@ const SignUpForm = () => {
     if (password.length < 8 && password.length > 0) errors.password = ("Password must be at least 8 characters or more.")
     if (password !== repeatPassword && repeatPassword.length > 0) errors.repeatPassword = ("Password doesn't match.")
     if (full_name.length > 0 && !letters.includes(full_name[0])) errors.fullName = ('Please enter your name')
-    if (full_name.length !== 0 && full_name.length < 4) errors.fullName = ('Name must be at least 3 characters long')
+    if (full_name.length !== 0 && full_name.length < 3) errors.fullName = ('Name must be at least 3 characters long')
     if (full_name.length > 40) errors.fullName = ('Please enter your name at a length less than 40 characters')
     if (Object.keys(errors).length > 0) setDisable(true)
     if (Object.keys(errors).length === 0 && username.length > 1 && password.length > 1 && full_name.length > 1 && repeatPassword.length > 1) setDisable(false)
