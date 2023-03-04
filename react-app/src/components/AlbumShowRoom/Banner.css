@@ -1,0 +1,9 @@
+.banner img{
+    width: 100%;
+    object-fit: cover;
+    position: relative;
+    margin-top: 55px;
+    /* margin-bottom: -350px; */
+    height: 250px;
+    z-index: -2;
+}

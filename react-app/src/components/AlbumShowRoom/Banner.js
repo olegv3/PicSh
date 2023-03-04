@@ -1,47 +1,40 @@
-// import React, { useState, useEffect } from 'react';
-// import { useParams } from 'react-router-dom';
-// import { getUserAlbums, getUserAlbumPhotos } from '../../store/album';
-// import { useDispatch, useSelector } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+import './Banner.css';
 
-// const Banner = () => {
-//     const { userId } = useParams();
-//     const dispatch = useDispatch();
-//     const [bannerImage, setBannerImage] = useState(null);
+const currentUser = localStorage.getItem('currentUser'); // get current user from local storage
 
-//     const { albums } = useSelector(state => state.albumReducer);
+let defaultImageUrl = 'https://d3a5ukb11xbbmk.cloudfront.net/eclipse.jpeg'; // default image URL
 
-//     useEffect(() => {
-//         dispatch(getUserAlbums(userId));
-//     }
-//     , [dispatch, userId]);
+const defaultImage = { url: defaultImageUrl }; // create default image object with URL based on user
 
-//     useEffect(() => {
-//         if (albums[0]) {
-//             dispatch(getUserAlbumPhotos(albums[0].id));
-//         }
+const Banner = ({ images }) => {
+  const [currentImage, setCurrentImage] = useState(images.length > 0 ? images[0] : defaultImage); // set current image to default image if no images available
 
-//     }
-//     , [dispatch, albums]);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const currentIndex = images.indexOf(currentImage);
+      const nextIndex = (currentIndex + 1) % images.length;
+      setCurrentImage(images[nextIndex]);
+    }, 15000);
+    return () => clearInterval(interval);
+  }, [currentImage, images]);
 
-//     useEffect(() => {
-//         window.scrollTo(0, 0);
-//     }
-//     , []);
+  useEffect(() => {
+    setCurrentImage(images.length > 0 ? images[0] : defaultImage); // set current image to default image if no images available
+  }, [images]);
 
-//     useEffect(() => {
-//         if (albums[0]) {
-//             setBannerImage(albums[0].images[0].url);
-//         }
-//     }
-//     , [albums]);
+  return (
+    <div className="banner">
+      <img src={currentImage?.url} alt="" />
+    </div>
+  );
+};
 
 
 
-//     return (
-//         <div className='banner-container'>
-//             <img className='banner-image' src={bannerImage} alt='Banner' />
-//         </div>
-//     );
-// };
+const mapStateToProps = (state) => ({
+  images: Object.values(state.imageReducer.allImages),
+});
 
-// export default Banner;
+export default connect(mapStateToProps)(Banner);

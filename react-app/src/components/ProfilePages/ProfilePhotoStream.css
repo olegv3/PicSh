@@ -1,43 +1,43 @@
 .photostream-container-profile {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
-    gap: .5em;
-    margin-left: auto;
-    width: 91%;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    margin-top: 100px;
+    }
 
-}
-
-.profile-photostream-photos {
-    display: flex;
-    flex-direction: row;
+    .profile-photostream-photos {
     box-sizing: border-box;
-    width: 200px;
+    width: 300px;
     height: 200px;
-    padding-top: .5em;
-    width: auto;
+    margin-bottom: 20px;
+    margin-top: -20px;
+    }
 
-    flex-wrap: wrap;
-}
-
-.user-images-container {
-    margin-bottom: -.5em;
-}
-
-.no-images-uploaded {
+    .user-images-container {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    margin-bottom: -.5em;
+    }
+
+    .no-images-uploaded {
+    display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
     padding-top: 5em;
-}
+    }
 
-.upload-here-profile {
+    .upload-here-profile {
     text-decoration: none;
     color: rgb(0, 130, 199);
-}
+    transition: color 0.3s ease;
+    }
 
-.upload-here-profile:hover {
+    .upload-here-profile:hover {
     color: rgb(19, 144, 212);
-}
+    }

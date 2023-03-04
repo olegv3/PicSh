@@ -5,6 +5,7 @@ import { getUserImages, getImageByIdThunk } from '../../store/image';
 import './ProfileAbout.css'
 import './ProfilePhotoStream.css'
 import ProfilePageBanner from './ProfilePageBanner';
+import Banner from '../AlbumShowRoom/Banner';
 
 
 function ProfilePhotoStream() {
@@ -36,6 +37,7 @@ function ProfilePhotoStream() {
     return (
         <div className='whole-profile-photostream-container'>
             <ProfilePageBanner />
+            {/* <Banner /> */}
             <div className='mid-navbar-profile-page-container'>
             </div>
             {images?.length > 0 ?

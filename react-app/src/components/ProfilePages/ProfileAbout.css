@@ -1,17 +1,10 @@
-.profile-banner-image {
-    background-size: cover;
-
-    box-sizing: border-box;
-    object-fit: cover;
-
-}
-
 .user-information-profile {
+    margin-top: -120px;
     display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 10%;
     color: white;
-    padding-top: 13em;
-    margin-left: 10em;
-    box-sizing: border-box;
 }
 
 .username-followers-following {
@@ -19,36 +12,25 @@
     flex-direction: row;
     gap: 2em;
     font-size: .85em;
-    font-weight: 300;
-    padding-left: .1em;
+    padding-left: 26px;
     box-sizing: border-box;
-
 }
 
 .full-name-span-profile {
-    font-size: 1.65em;
-    font-weight: 600;
+    font-size: 2em;
+    font-weight: 200;
     box-sizing: border-box;
-    padding-top: 1em;
-
+    /* padding-top: -1em; */
+    margin-top: -10px;
+    color: white;
 }
 
 .edit-button-profile-info {
     background: none;
-    /* border-color: white; */
     color: white;
     border: none;
     font-size: 1em;
     padding-top: 2.25em;
-    box-sizing: border-box;
-
-}
-
-
-.ellipsis-icon-profile {
-    border: .1em solid white;
-    padding-left: .5em;
-    padding-right: .5em;
     box-sizing: border-box;
 }
 
@@ -56,33 +38,31 @@
     display: flex;
     flex-direction: row;
     gap: 1em;
+    margin-top: 1.4em;
+    margin-bottom: .5em;
     font-weight: 200;
     box-sizing: border-box;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: clip;
     width: 100%;
+    padding-left: 20px;
 }
 
 .profile-picture-profile-page {
-    /* border: .2em solid blue; */
-    height: 60%;
-    width: 60%;
+    height: 90px;
+    width: 90px;
     box-sizing: border-box;
     border-radius: 5em;
     object-fit: cover;
-    /* padding-bottom: 1em; */
-
-
 }
 
-.profile-picture-div-profile {
-    height: 10%;
-    width: 10%;
+/* .profile-picture-div-profile {
+    height: 7%;
+    width: 7%;
     box-sizing: border-box;
     padding-top: .5em;
-
-}
+} */
 
 .mid-navbar-profile-page-container {
     display: flex;
@@ -91,18 +71,13 @@
     width: 65%;
     margin-left: 10.5em;
     padding-top: 1em;
-    /* padding-bottom: 1em;
-    border-bottom: .1em solid rgba(220, 220, 220, 0.644); */
     gap: 1.5em;
 }
-
-
 
 .mid-navbar-links-profile,
 .mid-navbar-links-profile-in-dev {
     text-decoration: none;
     color: rgb(99, 99, 99);
-
 }
 
 .mid-navbar-links-profile-in-dev {

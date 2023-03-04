@@ -18,7 +18,7 @@ function ProfileAbout() {
   }, [userId]);
 
   const userBeingViewed = useSelector(state => state.profileReducer?.profile)
-  
+
   const months = [
     "January",
     "February",

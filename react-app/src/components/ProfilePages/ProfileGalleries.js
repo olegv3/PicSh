@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import './ProfileAbout.css'
 import ProfilePageBanner from './ProfilePageBanner';
+import Banner from '../AlbumShowRoom/Banner';
 
 
 function ProfileGalleries() {
@@ -24,6 +25,7 @@ function ProfileGalleries() {
     return (
         <div className='whole-profile-page-container'>
             <ProfilePageBanner />
+            {/* <Banner /> */}
             <div className='mid-navbar-profile-page-container'>
             </div>
             <div className='about-container-profile'>

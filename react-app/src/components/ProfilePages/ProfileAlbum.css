@@ -2,41 +2,35 @@
     display: flex;
     flex-direction: column;
     padding-top: 1em;
+    }
 
-}
-
-.all-albums-container {
+    .all-albums-container {
     display: flex;
-    flex-direction: row;
-    gap: 1em;
-    width: 10em;
-    height: 10em;
-    padding-top: 1.5em;
-    width: 85%;
-    margin-left: auto;
-    /* margin-right: auto; */
     flex-wrap: wrap;
+    gap: 1em;
+    max-width: 1600px;
+    margin: 0 auto;
+    justify-content: center;
+    }
 
-}
-
-.link-to-album {
-    width: 250px;
-    height: 250px;
+    .link-to-album {
+    width: 420px;
+    height: 280px;
     box-sizing: border-box;
-    /* border-radius: 1em; */
+    }
 
-}
-
-.span-tag-album-name-link {
-    /* display: flex; */
-    width: 15.5em;
+    .span-tag-album-name-link {
+    width: 25.5em;
     font-weight: bold;
     margin-top: .50em;
     word-wrap: break-word;
-    /* white-space: nowrap; */
-    /* overflow: hidden; */
-    /* text-overflow: clip; */
-}
+    }
+
+    .album-showroom-container {
+        display: flex;
+        flex-direction: column;
+        padding: 50px;
+    }
 
 .album-name-and-buttons {
     display: flex;
@@ -51,16 +45,9 @@
     display: flex;
     flex-direction: row;
     border: none;
-    /* height: 1.5em; */
     margin-top: 20px;
     gap: .5em;
     padding-top: .1em;
-}
-
-.album-showroom-container {
-    display: flex;
-    flex-direction: column;
-    padding: 50px;
 }
 
 .edit-delete-buttons-albums {
@@ -69,10 +56,6 @@
     font-size: 1em;
     cursor: pointer;
 }
-
-/* .edit-delete-buttons-albums:hover {
-    box-shadow: 0px 0px 2px rgb(0, 0, 0);
-} */
 
 .add-album-container {
     display: flex;
@@ -92,7 +75,6 @@
 .button-to-add-album:hover {
     cursor: pointer;
     color: black;
-
 }
 
 .add-album-icon {

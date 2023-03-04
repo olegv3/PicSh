@@ -7,20 +7,15 @@ import './ProfileAlbum.css'
 import ProfilePageBanner from './ProfilePageBanner';
 import DeleteAlbum from '../DeleteAlbum/DeleteAlbum';
 
-
-
 function ProfileAlbums() {
 
     const { userId } = useParams();
     const dispatch = useDispatch()
     const history = useHistory()
     const [confirm, setConfirm] = useState(false)
-
     const userAlbums = useSelector(state => { return state })
     const currentUser = useSelector(state => state?.session?.user)
-
     const userAlbumsArray = Object.values(userAlbums.albumReducer.albumsForUser)
-
 
     useEffect(() => {
         dispatch(getUserAlbums(userId))
@@ -32,9 +27,7 @@ function ProfileAlbums() {
 
     const addAlbumButton = (e, id) => {
         e.preventDefault()
-
         history.push(`/people/${id}/albums/new`)
-
     }
 
     const deleteAlbumButton = (e) => {
