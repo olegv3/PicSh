@@ -96,7 +96,7 @@ const UploadPicture = () => {
   const updateTitle = (e) => {
     setTitle(e.target.value);
   };
-  
+
 
 
 
@@ -120,7 +120,7 @@ const UploadPicture = () => {
                        type="file"
                         accept="image/*, video/*"
                         placeholder="Upload Image or Video"
-                        onChange={updateImage}
+                        onChange={updateFile}
                          />
                         </div>
                         <div className='all-sign-up-form-inputs-labels'>
