@@ -52,7 +52,7 @@ const AlbumShowRoom = () => {
         {albumImages.map((image) => (
           <div key={image.id}>
             <Link to={`/people/${image.username}/albums/${albumId}/photos/${image.id}`}>
-              <img className='images-album-showroom' src={image.url} alt={image.title} />
+              <img className='images-album-showroom' src={image.url} alt={image.title} onError={(e) => { e.target.onerror = null; e.target.src = 'https://www.tripwiremagazine.com/wp-content/uploads/2010/11/Fotolia.jpg'; }} />
             </Link>
           </div>
         ))}
