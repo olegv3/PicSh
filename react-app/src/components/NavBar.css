@@ -160,7 +160,7 @@
     margin-right: 5px;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 768px) {
     .upload-navbar {
         margin-top: 100px;
         margin-left: -113px;
@@ -193,7 +193,7 @@
     box-sizing: border-box;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 768px) {
     .profile-button-div {
         margin-top: 50px;
         margin-left: -155px;
