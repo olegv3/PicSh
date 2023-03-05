@@ -11,7 +11,7 @@ const UploadPicture = () => {
   const currentUser = useSelector((state) => state.session.user);
   const userAlbums = useSelector((state) => state.albumReducer.albumsForUser);
   const userAlbumsArray = Object.values(userAlbums);
-  const [image, setImage] = useState(null);
+  const [file, setFile] = useState(null);
   const [imageLoading, setImageLoading] = useState(false);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -23,25 +23,17 @@ const UploadPicture = () => {
 
   useEffect(() => {
     const errors = [];
-    if (image) {
-      if (
-        !["image/jpg", "image/JPG", "image/jpeg", "image/png", "video/mp4", "video/mov", "video/MOV", "video/avi"].includes(
-          image.type
-        )
-      ) {
-        errors.push("Please only upload png, jpg, jpeg, mp4 files.");
-      }
-
-      setTitle(image.name.split(".")[0]);
+    if (file) {
+      setTitle(file.name.split(".")[0]);
     } else {
       setTitle("");
     }
-    if (!image) {
-      errors.push("");
+    if (!file) {
+      errors.push("Please choose a file to upload.");
     }
     setErrors(errors);
     setDisable(errors.length > 0);
-  }, [image]);
+  }, [file]);
 
   useEffect(() => {
     dispatch(getUserAlbums(currentUser.id));
@@ -57,7 +49,7 @@ const UploadPicture = () => {
       return;
     }
     const formData = new FormData();
-    formData.append("image", image);
+    formData.append("image", file);
     formData.append("title", title);
     formData.append("description", description);
     formData.append("tags", tags);
@@ -85,8 +77,8 @@ const UploadPicture = () => {
     }
   };
 
-  const updateImage = (e) => {
-    setImage(e.target.files[0]);
+  const updateFile = (e) => {
+    setFile(e.target.files[0]);
   };
 
   const updateDescription = (e) => {
@@ -104,6 +96,7 @@ const UploadPicture = () => {
   const updateTitle = (e) => {
     setTitle(e.target.value);
   };
+  
 
 
 
