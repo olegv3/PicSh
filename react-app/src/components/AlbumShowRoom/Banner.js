@@ -15,17 +15,17 @@ const Banner = ({ images }) => {
 
   useEffect(() => {
     if (images.length > 0) {
-      setCurrentIndex(0);
-      setCurrentImage(images[0]);
+      setCurrentIndex(Math.floor(Math.random() * images.length));
       setShowDefaultImage(false);
       const interval = setInterval(() => {
-        setCurrentIndex(currentIndex => Math.floor(Math.random() * images.length));
-      }, 10000);
+        setCurrentIndex(currentIndex => (currentIndex + 1) % images.length);
+      }, 15000);
       return () => clearInterval(interval);
     } else {
       setShowDefaultImage(true);
     }
   }, [images]);
+
 
   useEffect(() => {
     setCurrentImage(images[currentIndex] || defaultImage);
@@ -48,7 +48,6 @@ const Banner = ({ images }) => {
     </div>
   );
 };
-
 
 const mapStateToProps = (state) => ({
   images: Object.values(state.imageReducer.allImages),
