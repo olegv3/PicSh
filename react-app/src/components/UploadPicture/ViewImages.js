@@ -117,7 +117,7 @@ const ViewImages = () => {
             <div key={im.id}>
               <Link to={`/photos/${im.id}`} onClick={e => linkClick(e, im.id)}>
                 <img
-                  ref={el => (imagesRef.current[index] = el)}
+                  ref={el => (imagesRef.current[index] = el)} onError={(e) => { e.target.onerror = null; e.target.src = "https://www.tripwiremagazine.com/wp-content/uploads/2010/11/Fotolia.jpg" }}
                   data-src={im.url}
                   className='images-on-display'
                   alt='Images For Display'

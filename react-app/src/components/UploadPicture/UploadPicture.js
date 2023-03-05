@@ -25,12 +25,13 @@ const UploadPicture = () => {
     const errors = [];
     if (image) {
       if (
-        !["image/jpg", "image/JPG", "image/jpeg", "image/png"].includes(
+        !["image/jpg", "image/JPG", "image/jpeg", "image/png", "video/mp4", "video/mov", "video/MOV", "video/avi"].includes(
           image.type
         )
       ) {
-        errors.push("Please only upload png, jpg, or jpeg");
+        errors.push("Please only upload png, jpg, jpeg, mp4 files.");
       }
+
       setTitle(image.name.split(".")[0]);
     } else {
       setTitle("");
@@ -121,14 +122,13 @@ const UploadPicture = () => {
                             ))}
                         </div>
                         <div className='all-sign-up-form-inputs-labels'>
-
-                            <input
-                                className="choose-file-button-upload"
-                                type="file"
-                                accept="image/*"
-                                placeholder="Upload Image"
-                                onChange={updateImage}
-                            />
+                        <input
+                        className="choose-file-button-upload"
+                       type="file"
+                        accept="image/*, video/*"
+                        placeholder="Upload Image or Video"
+                        onChange={updateImage}
+                         />
                         </div>
                         <div className='all-sign-up-form-inputs-labels'>
                             <label></label>

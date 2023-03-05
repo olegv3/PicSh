@@ -2,35 +2,52 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import './Banner.css';
 
-const currentUser = localStorage.getItem('currentUser'); // get current user from local storage
+const currentUser = localStorage.getItem('currentUser');
 
-let defaultImageUrl = 'https://d3a5ukb11xbbmk.cloudfront.net/eclipse.jpeg'; // default image URL
+let defaultImageUrl = 'https://d3a5ukb11xbbmk.cloudfront.net/eclipse.jpeg';
 
-const defaultImage = { url: defaultImageUrl }; // create default image object with URL based on user
+const defaultImage = { url: defaultImageUrl };
 
 const Banner = ({ images }) => {
-  const [currentImage, setCurrentImage] = useState(images.length > 0 ? images[0] : defaultImage); // set current image to default image if no images available
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentImage, setCurrentImage] = useState(images.length > 0 ? images[0] : defaultImage);
+  const [showDefaultImage, setShowDefaultImage] = useState(false);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      const currentIndex = images.indexOf(currentImage);
-      const nextIndex = (currentIndex + 1) % images.length;
-      setCurrentImage(images[nextIndex]);
-    }, 15000);
-    return () => clearInterval(interval);
-  }, [currentImage, images]);
-
-  useEffect(() => {
-    setCurrentImage(images.length > 0 ? images[0] : defaultImage); // set current image to default image if no images available
+    if (images.length > 0) {
+      setCurrentIndex(0);
+      setCurrentImage(images[0]);
+      setShowDefaultImage(false);
+      const interval = setInterval(() => {
+        setCurrentIndex(currentIndex => Math.floor(Math.random() * images.length));
+      }, 10000);
+      return () => clearInterval(interval);
+    } else {
+      setShowDefaultImage(true);
+    }
   }, [images]);
+
+  useEffect(() => {
+    setCurrentImage(images[currentIndex] || defaultImage);
+  }, [currentIndex, images]);
 
   return (
     <div className="banner">
-      <img src={currentImage?.url} alt="" />
+      {showDefaultImage ? (
+        <img src={defaultImageUrl} alt="" />
+      ) : (
+        <img
+          src={currentImage?.url}
+          alt=""
+          onError={(e) => {
+            e.target.onerror = null;
+            e.target.src = 'https://www.tripwiremagazine.com/wp-content/uploads/2010/11/Fotolia.jpg';
+          }}
+        />
+      )}
     </div>
   );
 };
-
 
 
 const mapStateToProps = (state) => ({

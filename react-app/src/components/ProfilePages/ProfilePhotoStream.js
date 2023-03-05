@@ -46,7 +46,7 @@ function ProfilePhotoStream() {
                         {images?.map((im) =>
                             <div key={im?.id} className='user-images-container'>
                                 <Link to={`/people/${userId}/photostream/${im?.id}`} onClick={e => linkClick(e, im.id)}>
-                                    <img src={im?.url} className='profile-photostream-photos' alt='Images For Display' />
+                                    <img src={im?.url} className='profile-photostream-photos' alt='Images For Display' onError={e => e.target.src = 'https://www.tripwiremagazine.com/wp-content/uploads/2010/11/Fotolia.jpg'} />
                                 </Link>
                             </div>
                         )}
