@@ -10,9 +10,7 @@
 .transparent {
     background-color: rgba(37, 36, 36, 0.2);
     box-shadow: none;
-
 }
-
 
 .links-on-nav-bar {
     color: white;
@@ -43,7 +41,6 @@
     flex-direction: row;
     box-sizing: border-box;
     justify-content: space-between;
-
 }
 
 .navbar-right-side {
@@ -89,7 +86,6 @@
 .you-span-tag-navbar {
     color: white;
     font-size: 1.25em;
-
 }
 
 .you-dropdown-links-div {
@@ -117,14 +113,12 @@
 
 .container-for-name {
     padding-top: 9px;
-    /* box-sizing: border-box; */
 }
 
 .container-for-right-navbar-links {
     display: flex;
     flex-direction: row;
     padding-left: 1em;
-    /* box-sizing: border-box; */
 }
 
 .sign-up-navbar-text {
@@ -142,25 +136,12 @@
 
 .sign-up-navbar-text:hover {
     color: gray;
-    /* box-sizing: border-box; */
 }
 
 .link-for-signup {
     color: white;
     text-decoration: none;
-    /* box-sizing: border-box; */
 }
-
-/* .logout-button-div-navbar {
-    padding-top: .25em;
-    box-sizing: border-box;
-} */
-
-/* .logout-button-navbar {
-    background: none;
-    border: none;
-    font-size: .85em;
-} */
 
 .upload-icon-navbar {
     font-size: 1.75em;
@@ -177,6 +158,13 @@
     width: 35px;
     margin-top: -7px;
     margin-right: 5px;
+}
+
+@media screen and (max-width: 500px) {
+    .upload-navbar {
+        margin-top: 100px;
+        margin-left: -113px;
+    }
 }
 
 
@@ -198,31 +186,19 @@
     width: 12em;
 }
 
-/* .ProfileButton {
-    display: flex;
-    flex-direction: column;
-    background: none;
-    border: none;
-    margin-bottom: 10em;
-    box-sizing: border-box;
-} */
-
-
 .profile-button-div {
     display: flex;
     margin-top: -5px;
     flex-direction: column;
     box-sizing: border-box;
-
-
 }
 
-/* .profileButton {
-    width: 3em;
-    box-sizing: border-box;
-} */
-
-
+@media screen and (max-width: 500px) {
+    .profile-button-div {
+        margin-top: 50px;
+        margin-left: -155px;
+    }
+}
 
 .div-for-profile-button-and-upload {
     display: flex;
@@ -245,7 +221,6 @@
     text-decoration: none;
     color: black;
     box-sizing: border-box;
-
 }
 
 .username:hover,
