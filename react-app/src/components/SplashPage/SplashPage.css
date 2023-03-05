@@ -150,13 +150,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
     font-size: 1.5em;
     font-weight: bold;
     box-sizing: border-box;
     text-shadow: 1px 1px 1px black;
-}
+    height: 100vh;
+  }
 
-.center-page-sign-up-button {
+  .center-page-sign-up-button {
     width: 9em;
     height: 2.8em;
     background-color: white;
@@ -166,8 +168,8 @@
     border: none;
     border-radius: .15em;
     box-sizing: border-box;
+  }
 
-}
 
 .center-page-sign-up-button:hover {
     color: gray;
