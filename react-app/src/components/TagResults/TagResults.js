@@ -43,7 +43,7 @@ const TagResults = () => {
 
                     ))}
                 </div>
-                <Footer />
+                {/* <Footer /> */}
             </div >
         </div>
     )
