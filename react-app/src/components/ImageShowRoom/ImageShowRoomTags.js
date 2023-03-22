@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory, useLocation, useParams } from "react-router-dom";
 import { getImageByIdThunk } from "../../store/image";
 import './ImageShowRoom.css'
-import Footer from "../Footer/Footer";
 import EditCommentModal from "../EditComment/EditCommentModal";
 import CommentForm from "../CommentForm/CommentForm";
 
@@ -18,7 +17,6 @@ const ImageShowRoomTags = () => {
     let imageTags;
     if (currentImage?.tags !== null && currentImage?.tags.includes(',')) imageTags = currentImage?.tags.split(',')
     else if (currentImage?.tags !== null) imageTags = [currentImage?.tags]
-
     const commentsForImage = currentImage?.comments
 
     useEffect(() => {
@@ -40,7 +38,6 @@ const ImageShowRoomTags = () => {
 
         return history.push(`/photos/${currentUser.id}/${id}/edit-details?redirectTo=${prevLocation.pathname}`)
     }
-
 
     return (
         <>
@@ -94,7 +91,11 @@ const ImageShowRoomTags = () => {
                                     <div className="description-showroom-span-div">
                                         <span className="description-showroom-span">{currentImage?.description}</span>
                                     </div>
-
+                                    <div className="image-tags-showroom-div">
+                                 {imageTags?.map((tag, id) => (
+                                 <Link key={id} to={`/photos/tags/${tag}`} className='tag-links' style={{ marginRight: '5px' }}>{tag}</Link>
+                                 ))}
+                                </div>
                                 </div>
                             </div>
                             <div className="border-div-showroom" />
@@ -105,7 +106,6 @@ const ImageShowRoomTags = () => {
                                         <div key={comment.id} className='comment-div-showroom'>
                                             <Link className="link-for-users-comments" to={`/people/${comment?.owner.id}/photostream`}>{comment.owner.fullName}</Link>
                                             <div className="single-comment-body-with-buttons">
-
                                                 <div>
                                                     <EditCommentModal imageId={currentImage?.id} commentId={comment.id} currentComment={comment.comment} user={currentUser} commentOwner={comment.owner} />
                                                 </div>
@@ -123,10 +123,8 @@ const ImageShowRoomTags = () => {
                                   <CommentForm />
                                     </div>
                                 }
-
                             </div>
                         </div>
-                        {/* <Footer /> */}
                     </>
                     :
                     <div className="photo-no-exist">

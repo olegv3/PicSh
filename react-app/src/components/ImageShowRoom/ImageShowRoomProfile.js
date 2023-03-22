@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory, useLocation, useParams } from "react-router-dom";
 import { getImageByIdThunk } from "../../store/image";
 import './ImageShowRoom.css'
-import Footer from "../Footer/Footer";
 import EditCommentModal from "../EditComment/EditCommentModal";
 import CommentForm from "../CommentForm/CommentForm";
 
@@ -93,7 +92,11 @@ const ImageShowRoomProfile = () => {
                                     <div className="description-showroom-span-div">
                                         <span className="description-showroom-span">{currentImage?.description}</span>
                                     </div>
-
+                                    <div className="image-tags-showroom-div">
+                                   {imageTags?.map((tag, id) => (
+                                 <Link key={id} to={`/photos/tags/${tag}`} className='tag-links' style={{ marginRight: '10px' }}>{tag}</Link>
+                                  ))}
+                                    </div>
                                 </div>
                             </div>
                             <div className="border-div-showroom" />
@@ -125,7 +128,6 @@ const ImageShowRoomProfile = () => {
 
                             </div>
                         </div>
-                        {/* <Footer /> */}
                     </>
                     :
                     <div className="photo-no-exist">
