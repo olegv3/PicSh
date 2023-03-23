@@ -48,6 +48,8 @@ function ProfileAlbums() {
         <div className='whole-profile-page-container'>
             <ProfilePageBanner />
             <div className='mid-navbar-profile-page-container'>
+            {/* <Link to={`/people/${userId}/photostream`} className='mid-navbar-links-profile'>Photos</Link>
+                <Link to={`/people/${userId}/albums`} className='mid-navbar-links-profile-active'>Albums</Link> */}
             </div>
             <div className='album-container-profile'>
                 <div className='add-album-container'>
