@@ -97,8 +97,10 @@ const ImageShowRoom = () => {
                                         <span className="description-showroom-span">{currentImage?.description}</span>
                                     </div>
                                     <div className="image-tags-showroom-div">
-
-                                    </div>
+                                     {imageTags?.map((tag, id) => (
+                                      <Link key={id} to={`/photos/tags/${tag}`} className='tag-links' style={{ marginRight: '10px' }}>{tag}</Link>
+                                      ))}
+                                        </div>
                                 </div>
                             </div>
                             <div className="border-div-showroom" />
@@ -127,7 +129,6 @@ const ImageShowRoom = () => {
                                     }
                                 </div>
                             </div>
-                        {/* <Footer /> */}
                     </>
                     :
                     <div className="photo-no-exist">

@@ -35,7 +35,6 @@ function ProfilePageBanner() {
                         <div className='full-name-and-button'>
                             <span className='full-name-span-profile'>{user.fullName}</span>
                             <div className='extra-button-profile-div'>
-                                {/* <button className='edit-button-profile-info'><span className='ellipsis-icon-profile'><i className="fa-solid fa-ellipsis"></i></span></button> */}
                             </div>
                         </div>
                         <div className='username-followers-following'>

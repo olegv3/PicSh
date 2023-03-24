@@ -47,15 +47,22 @@ const SignUpForm = () => {
     setFormErrors(errors)
   }, [username, password, repeatPassword, full_name, disable])
 
+  const capitalizeFirstLetter = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
+
   const onSignUp = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(username.toLowerCase(), full_name, email.toLowerCase(), password));
+      const capitalizedUsername = capitalizeFirstLetter(username);
+      const capitalizedFullName = capitalizeFirstLetter(full_name);
+      const data = await dispatch(signUp(capitalizedUsername, capitalizedFullName, email.toLowerCase(), password));
       if (data) {
-        setErrors(data)
+        setErrors(data);
       }
     }
   };
+
 
   const demoUser = async (e) => {
     e.preventDefault()

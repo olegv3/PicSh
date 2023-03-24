@@ -175,6 +175,11 @@
     color: rgb(0, 130, 199);
 }
 
+/* .tag-links {
+    margin-right: 5px;
+} */
+
+
 .tag-links:hover {
     text-decoration: underline;
     color: rgb(4, 151, 230);

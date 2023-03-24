@@ -3,7 +3,6 @@ import { useParams, Link } from 'react-router-dom';
 import { oneAlbum } from '../../store/album';
 import { useDispatch, useSelector } from 'react-redux';
 import './AlbumShowRoom.css';
-import Footer from '../Footer/Footer';
 
 const AlbumShowRoom = () => {
   const { userId, albumId } = useParams();
@@ -57,7 +56,6 @@ const AlbumShowRoom = () => {
           </div>
         ))}
       </div>
-      {/* <Footer /> */}
     </div>
   );
 };
