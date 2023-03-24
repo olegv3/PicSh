@@ -98,15 +98,11 @@ const UploadPicture = () => {
   };
 
 
-
-
     return (
         <div className='background-for-signup-and-login'>
             <div className="whole-upload-container">
                 <div className="sign-up-form">
                     <div className="image-size-warning">
-                        <span className="warning-upload-spans"></span>
-                        <span className="warning-upload-spans"></span>
                     </div>
                     <form onSubmit={handleSubmit}>
                         <div className='errors-for-sign-up'>
@@ -141,6 +137,16 @@ const UploadPicture = () => {
                                 type="text"
                                 onChange={updateDescription}
                                 value={description}
+                            />
+                        </div>
+                        <div className='all-sign-up-form-inputs-labels'>
+                            <label></label>
+                            <input
+                                className='sign-up-form-inputs-only'
+                                placeholder="Tags (separate with commas)"
+                                type="text"
+                                onChange={updateTags}
+                                value={tags}
                             />
                         </div>
                         <div className='all-sign-up-form-inputs-labels'>

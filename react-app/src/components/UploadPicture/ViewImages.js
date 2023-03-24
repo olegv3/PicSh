@@ -126,35 +126,9 @@ const ViewImages = () => {
             </div>
           ))}
         </div>
-        {/* <Footer /> */}
       </div>
     </div>
   );
 };
 
 export default ViewImages;
-
-
-
-        {/* </div>
-        <div className="all-images-explore-page">
-          {allImages.map((im, index) => (
-            <div key={im.id}>
-              <Link to={`/photos/${im.id}`} onClick={e => linkClick(e, im.id)}>
-                <img
-                  ref={el => (imagesRef.current[index] = el)}
-                  data-src={im.url}
-                  className='images-on-display'
-                  alt='Images For Display'
-                />
-              </Link>
-            </div>
-          ))}
-        </div>
-        <Footer />
-      </div>
-    </div>
-  );
-};
-
-export default ViewImages; */}

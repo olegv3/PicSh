@@ -32,7 +32,7 @@ const TagResults = () => {
     <div className="background-for-tag-page">
       <div className="whole-tag-page-container">
         <div className="tag-header-div">
-          <h2>{tag} tags selected</h2>
+          <h3>{tag} tags selected</h3>
         </div>
         <div className="all-images-tag-page">{renderImages()}</div>
       </div>
